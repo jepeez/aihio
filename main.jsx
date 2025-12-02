@@ -6,7 +6,8 @@ import { ScrambleText } from './scramble.js'
 import { MagneticButton } from './magnetic.js'
 import { ContactTerminal } from './ContactTerminal.jsx'
 
-const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+const path = window.location.pathname;
+const isHomePage = path === '/' || path.endsWith('index.html') || path.endsWith('/aihio/') || path === '/aihio';
 
 // Main Root (for HeroScene & Transitions)
 const rootElement = document.getElementById('root');
