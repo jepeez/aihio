@@ -16,7 +16,7 @@ const CYAN_GLOW = "#009FE3"
 
 export function AV_logo3d_gap(props) {
   const group = useRef()
-  const { nodes } = useGLTF('/models/AV_logo3d_gap.glb')
+  const { nodes } = useGLTF(import.meta.env.BASE_URL + 'models/AV_logo3d_gap.glb')
 
   // Categorize nodes
   const { cores, shells, textParts } = useMemo(() => {
@@ -228,4 +228,4 @@ export function AV_logo3d_gap(props) {
   )
 }
 
-useGLTF.preload('/models/AV_logo3d_gap.glb')
+useGLTF.preload(import.meta.env.BASE_URL + 'models/AV_logo3d_gap.glb')

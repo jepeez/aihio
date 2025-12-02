@@ -36,8 +36,8 @@ export function AV_logo3d(props) {
   // Load both models
   // AV.glb = Whole one piece model (Solid state)
   // AV1.glb = Explosion parts (Fractured state)
-  const { nodes: solidNodes } = useGLTF('/models/AV.glb')
-  const { nodes: partsNodes } = useGLTF('/models/AV1.glb', true) // Enable Draco
+  const { nodes: solidNodes } = useGLTF(import.meta.env.BASE_URL + 'models/AV.glb')
+  const { nodes: partsNodes } = useGLTF(import.meta.env.BASE_URL + 'models/AV1.glb', true) // Enable Draco
   
   // Refs for groups
   const solidGroupRef = useRef()
@@ -318,5 +318,5 @@ export function AV_logo3d(props) {
   )
 }
 
-useGLTF.preload('/models/AV.glb')
-useGLTF.preload('/models/AV1.glb')
+useGLTF.preload(import.meta.env.BASE_URL + 'models/AV.glb')
+useGLTF.preload(import.meta.env.BASE_URL + 'models/AV1.glb')
