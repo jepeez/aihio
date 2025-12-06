@@ -6,18 +6,18 @@ export class MagneticButton {
             textStrength: 10, // How much the text moves (parallax effect)
             ease: 0.1, // Lerp factor for smoothness
         }, options);
-        
+
         this.text = this.el.querySelector('span') || this.el;
-        
+
         this.mouse = { x: 0, y: 0 };
         this.pos = { x: 0, y: 0 }; // Current button position offset
         this.textPos = { x: 0, y: 0 }; // Current text position offset
         this.target = { x: 0, y: 0 };
-        
+
         this.rect = this.el.getBoundingClientRect();
         this.isHovering = false;
         this.rafId = null;
-        
+
         this.init();
     }
 
@@ -48,16 +48,20 @@ export class MagneticButton {
             x: this.rect.left + this.rect.width / 2,
             y: this.rect.top + this.rect.height / 2
         };
-        
+
         const dist = {
             x: e.clientX - center.x,
             y: e.clientY - center.y
         };
-        
+
         // Normalize / scale the movement
-        // We want the button to move towards the mouse, but clamped/scaled
-        this.target.x = dist.x * 0.4; // Move 40% of the distance
-        this.target.y = dist.y * 0.4;
+        // We want the button to move towards the mouse, but clamped/scaled by strength
+        // Calculate normalized position (-1 to 1) based on element size
+        const normX = dist.x / (this.rect.width / 2);
+        const normY = dist.y / (this.rect.height / 2);
+
+        this.target.x = normX * this.options.strength;
+        this.target.y = normY * this.options.strength;
     }
 
     onLeave(e) {
@@ -69,10 +73,10 @@ export class MagneticButton {
         // Lerp position values
         this.pos.x += (this.target.x - this.pos.x) * this.options.ease;
         this.pos.y += (this.target.y - this.pos.y) * this.options.ease;
-        
+
         // Apply transform to button
         this.el.style.transform = `translate(${this.pos.x}px, ${this.pos.y}px)`;
-        
+
         // Optional: Parallax for child text
         // This assumes the text is a direct child or passed as option
         // if (this.text && this.text !== this.el) {
@@ -83,13 +87,13 @@ export class MagneticButton {
 
         // Stop loop if not hovering and close to zero
         const isZero = Math.abs(this.pos.x) < 0.01 && Math.abs(this.pos.y) < 0.01;
-        
+
         if (!this.isHovering && isZero) {
             this.rafId = null;
             this.el.style.transform = '';
             return;
         }
-        
+
         this.rafId = requestAnimationFrame(() => this.loop());
     }
 }

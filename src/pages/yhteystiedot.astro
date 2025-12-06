@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ContactTerminal } from '../components/ContactTerminal.jsx';
+---
+
+<Layout title="AIHIO VISUALS // YHTEYSTIEDOT">
+    <main class="relative z-10 pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <div class="inline-block p-px bg-gradient-to-r from-transparent via-signal-blue/50 to-transparent mb-12">
+                <div class="bg-hw-black px-6 py-2 font-mono text-sm text-signal-blue">
+                    YHTEYS AVATTU
+                </div>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+                ALOITETAANKO <span class="text-white/30">PROJEKTI?</span>
+            </h1>
+            
+            <p class="text-white/60 text-lg mb-12 max-w-2xl mx-auto">
+                Oletko valmis viemään brändisi seuraavalle tasolle? Lähetä meille viesti tai soita, niin suunnitellaan yhdessä ratkaisu tarpeisiisi.
+            </p>
+
+            <div id="contact-terminal-container" class="relative z-20 pointer-events-auto">
+                <ContactTerminal client:visible />
+            </div>
+        </div>
+    </main>
+</Layout>

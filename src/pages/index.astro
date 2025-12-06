@@ -1,0 +1,623 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroScene from "../components/HeroScene.jsx";
+import ServicesSlider from "../components/ServicesSlider.jsx";
+---
+
+<Layout title="AIHIO VISUALS // DIGITAL AGENCY">
+    <main class="relative z-10 pt-16 pointer-events-none">
+        <!-- Hero Section -->
+        <section
+            class="min-h-screen flex items-center justify-center relative pb-32 md:pb-40"
+        >
+            <div class="absolute inset-0 z-20 pointer-events-none">
+                <HeroScene client:idle />
+            </div>
+
+            <div
+                class="container mx-auto px-6 relative z-10 pointer-events-auto"
+            >
+                <div class="max-w-4xl mt-40 md:mt-0">
+                    <div
+                        class="hidden md:flex font-mono text-signal-blue text-sm mb-4 tracking-[0.2em] items-center gap-2"
+                    >
+                        <span class="w-4 h-[1px] bg-signal-blue"></span>
+                        TEKNOLOGIA KOHTAA LUOVUUDEN
+                    </div>
+                    <h1
+                        class="text-5xl md:text-[5rem] font-bold text-white tracking-tight leading-none mb-6"
+                    >
+                        Herätä brändisi eloon <br />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-white/50 to-white/10"
+                            >– joka ulottuvuudessa.</span
+                        >
+                    </h1>
+                    <p
+                        class="hidden md:block text-white/90 text-lg md:text-xl max-w-2xl font-light leading-relaxed border-l border-signal-blue/30 pl-6"
+                    >
+                        Emme tee vain mainoksia, luomme elämyksiä. Modernit
+                        verkkosivut, elokuvallinen videotuotanto, 3D-animaatiot
+                        ja valokuvaus, jotka erottavat sinut massasta.
+                    </p>
+                    <p
+                        class="md:hidden text-white/90 text-lg max-w-2xl font-light leading-relaxed border-l border-signal-blue/30 pl-6"
+                    >
+                        Modernit verkkosivut, valokuvaus ja 3D-tuotannot, jotka
+                        erottavat sinut massasta.
+                    </p>
+
+                    <div class="mt-12 flex flex-wrap gap-4">
+                        <a
+                            href="/palvelut"
+                            class="hologram-btn green group w-full md:w-auto md:px-12"
+                        >
+                            <span data-text="TUTUSTU PALVELUIHIN"
+                                >TUTUSTU PALVELUIHIN</span
+                            >
+                            <div class="holo-scan-line"></div>
+                            <div class="btn-border-t"></div>
+                            <div class="btn-border-r"></div>
+                            <div class="btn-border-b"></div>
+                            <div class="btn-border-l"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative Elements -->
+            <div
+                class="absolute bottom-20 left-1/2 -translate-x-1/2 animate-bounce text-white/20"
+            >
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                >
+                    <path d="M12 5v14M5 12l7 7 7-7"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Mission / About -->
+        <section
+            id="mission"
+            class="py-24 md:py-32 relative border-t border-white/5 bg-hw-black/50 backdrop-blur-sm pointer-events-auto"
+        >
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2
+                            class="font-mono text-2xl text-white mb-8 flex items-center gap-3"
+                        >
+                            <span class="text-signal-blue">01.</span>
+                            <span class="scramble-target">YDIN</span>
+                        </h2>
+
+                        <!-- Mobile Text -->
+                        <div class="md:hidden">
+                            <p class="text-white/70 text-lg leading-relaxed">
+                                Yhdistämme luovan suunnittelun ja teknisen
+                                osaamisen. Kun yksi kumppani hoitaa kaiken
+                                3D-kuvista koodiin, brändisi pysyy yhtenäisenä
+                                ja säästät aikaa.
+                            </p>
+                        </div>
+
+                        <!-- Desktop Text -->
+                        <div class="hidden md:block space-y-6">
+                            <p class="text-white/70 text-lg leading-relaxed">
+                                Erottuminen ei vaadi monimutkaisia termejä, vaan
+                                selkeyttä ja laatua. Yhdistämme luovan
+                                suunnittelun ja vahvan teknisen osaamisen
+                                toimivaksi kokonaisuudeksi.
+                            </p>
+                            <p class="text-white/70 text-lg leading-relaxed">
+                                Kun yksi kumppani hoitaa kaiken 3D-kuvista ja
+                                videoista nettisivujen koodiin, brändisi pysyy
+                                yhtenäisenä. Ei turhaa säätöä usean eri
+                                toimiston välillä, vaan yksi selkeä visio ja
+                                laadukas lopputulos.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="hidden md:block glass-panel p-8 rounded-sm relative overflow-hidden"
+                    >
+                        <div class="absolute top-0 right-0 p-2">
+                            <div
+                                class="w-2 h-2 bg-noise-red rounded-full animate-pulse"
+                            >
+                            </div>
+                        </div>
+                        <h3
+                            class="font-mono text-xs text-white/40 mb-6 tracking-widest border-b border-white/10 pb-2"
+                        >
+                            VAHVUUDET
+                        </h3>
+                        <div class="space-y-3 font-mono text-sm">
+                            <div class="flex justify-between text-white/80">
+                                <span>VISUAALISUUS</span>
+                                <span class="text-signal-blue">PREMIUM</span>
+                            </div>
+                            <div class="flex justify-between text-white/80">
+                                <span>TEKNOLOGIA</span>
+                                <span class="text-signal-blue">SKALAUTUVA</span>
+                            </div>
+                            <div class="flex justify-between text-white/80">
+                                <span>KÄYTTÄJÄKOKEMUS</span>
+                                <span class="text-signal-blue"
+                                    >INTUITIIVINEN</span
+                                >
+                            </div>
+                            <div class="flex justify-between text-white/80">
+                                <span>EROTTUVUUS</span>
+                                <span class="text-signal-blue">TAATTU</span>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-white/10">
+                                <div class="w-full bg-white/10 h-1 mt-1">
+                                    <div
+                                        class="bg-signal-blue h-full w-full relative overflow-hidden"
+                                    >
+                                        <div
+                                            class="absolute inset-0 bg-white/20 w-full h-full animate-[shimmer_2s_infinite]"
+                                        >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex justify-between text-sm text-white/60 mt-2"
+                                >
+                                    <span>LAATU</span>
+                                    <span>TINKIMÄTÖN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Grid -->
+        <section
+            id="capabilities"
+            class="py-24 md:py-32 relative pointer-events-auto"
+        >
+            <div class="container mx-auto px-6">
+                <div
+                    class="flex items-end justify-between mb-16 border-b border-white/10 pb-6"
+                >
+                    <h2
+                        class="font-mono text-2xl text-white flex items-center gap-3"
+                    >
+                        <span class="text-signal-blue">02.</span>
+                        <span class="scramble-target">PALVELUT</span>
+                    </h2>
+                    <div
+                        class="font-mono text-xs text-white/40 hidden md:block"
+                    >
+                        <!-- Removed decorative code -->
+                    </div>
+                </div>
+
+                <div class="md:hidden -mx-6">
+                    <ServicesSlider client:visible />
+                </div>
+
+                <div class="hidden md:grid md:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div
+                        class="glass-panel p-8 group relative min-h-[240px] md:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:bg-white/5 cursor-crosshair overflow-hidden"
+                    >
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 pointer-events-none">
+                            <img
+                                src="/floating-ui-design.webp"
+                                alt=""
+                                class="w-full h-full object-cover opacity-40 md:opacity-20 group-hover:opacity-40 group-[.mobile-active]:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale group-hover:grayscale-0 group-[.mobile-active]:grayscale-0"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+                            >
+                            </div>
+                        </div>
+
+                        <!-- Corner Brackets -->
+                        <div
+                            class="corner-bracket corner-bracket-tl top-0 left-0 border-t border-l border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-tr top-0 right-0 border-t border-r border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-bl bottom-0 left-0 border-b border-l border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-br bottom-0 right-0 border-b border-r border-white/20 z-20"
+                        >
+                        </div>
+
+                        <div class="relative z-10 pointer-events-none">
+                            <div
+                                class="w-10 h-10 border border-signal-blue/30 flex items-center justify-center mb-6 text-signal-blue"
+                            >
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <polyline points="4 17 10 11 4 5"
+                                    ></polyline>
+                                    <line x1="12" y1="19" x2="20" y2="19"
+                                    ></line>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-white mb-6 scramble-target"
+                            >
+                                WEB & BRÄNDI
+                            </h3>
+                            <p
+                                class="hidden md:block text-white/50 text-sm leading-relaxed"
+                            >
+                                Modernit verkkosivut ja erottuva yritysilme.
+                                Suunnittelemme logot, grafiikat ja
+                                responsiiviset sivustot, jotka on optimoitu sekä
+                                hakukoneille että käyttäjille.
+                            </p>
+                            <p
+                                class="md:hidden text-white/50 text-sm leading-relaxed"
+                            >
+                                Modernit verkkosivut ja erottuva yritysilme.
+                                Logot, grafiikat ja optimoidut sivustot.
+                            </p>
+                        </div>
+                        <div
+                            class="font-mono text-[10px] text-signal-blue/50 mt-8"
+                        >
+                            VISUAL STORYTELLING
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="glass-panel p-8 group relative min-h-[240px] md:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:bg-white/5 cursor-crosshair overflow-hidden"
+                    >
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 pointer-events-none">
+                            <img
+                                src="/camera-drone.webp"
+                                alt=""
+                                class="w-full h-full object-cover opacity-40 md:opacity-20 group-hover:opacity-40 group-[.mobile-active]:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale group-hover:grayscale-0 group-[.mobile-active]:grayscale-0"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+                            >
+                            </div>
+                        </div>
+
+                        <div
+                            class="corner-bracket corner-bracket-tl top-0 left-0 border-t border-l border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-tr top-0 right-0 border-t border-r border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-bl bottom-0 left-0 border-b border-l border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-br bottom-0 right-0 border-b border-r border-white/20 z-20"
+                        >
+                        </div>
+
+                        <div class="relative z-10 pointer-events-none">
+                            <div
+                                class="w-10 h-10 border border-signal-blue/30 flex items-center justify-center mb-6 text-signal-blue"
+                            >
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line
+                                        x1="14.31"
+                                        y1="8"
+                                        x2="20.05"
+                                        y2="17.94"></line>
+                                    <line x1="9.69" y1="8" x2="21.17" y2="8"
+                                    ></line>
+                                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"
+                                    ></line>
+                                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"
+                                    ></line>
+                                    <line x1="14.31" y1="16" x2="2.83" y2="16"
+                                    ></line>
+                                    <line
+                                        x1="16.62"
+                                        y1="12"
+                                        x2="10.88"
+                                        y2="21.94"></line>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-white mb-6 scramble-target"
+                            >
+                                KUVAUS & VIDEO
+                            </h3>
+                            <p
+                                class="hidden md:block text-white/50 text-sm leading-relaxed"
+                            >
+                                Elokuvallista laatua maalta ja ilmasta. Tuotamme
+                                näyttävät videot, drone-kuvaukset sekä potretti-
+                                ja tuotekuvat, jotka nostavat brändisi
+                                ammattimaisuuden uudelle tasolle.
+                            </p>
+                            <p
+                                class="md:hidden text-white/50 text-sm leading-relaxed"
+                            >
+                                Elokuvallista laatua maalta ja ilmasta.
+                                Mainosvideot, drone-kuvaus ja potretit.
+                            </p>
+                        </div>
+                        <div
+                            class="font-mono text-[10px] text-signal-blue/50 mt-8"
+                        >
+                            PRODUCTION
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="glass-panel p-8 group relative min-h-[240px] md:min-h-[300px] flex flex-col justify-between transition-all duration-300 hover:bg-white/5 cursor-crosshair overflow-hidden"
+                    >
+                        <!-- Background Image -->
+                        <div class="absolute inset-0 z-0 pointer-events-none">
+                            <img
+                                src="/3drender.webp"
+                                alt=""
+                                class="w-full h-full object-cover opacity-40 md:opacity-20 group-hover:opacity-40 group-[.mobile-active]:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale group-hover:grayscale-0 group-[.mobile-active]:grayscale-0"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+                            >
+                            </div>
+                        </div>
+
+                        <div
+                            class="corner-bracket corner-bracket-tl top-0 left-0 border-t border-l border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-tr top-0 right-0 border-t border-r border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-bl bottom-0 left-0 border-b border-l border-white/20 z-20"
+                        >
+                        </div>
+                        <div
+                            class="corner-bracket corner-bracket-br bottom-0 right-0 border-b border-r border-white/20 z-20"
+                        >
+                        </div>
+
+                        <div class="relative z-10 pointer-events-none">
+                            <div
+                                class="w-10 h-10 border border-signal-blue/30 flex items-center justify-center mb-6 text-signal-blue"
+                            >
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"
+                                    ></polygon>
+                                    <polyline points="2 17 12 22 22 17"
+                                    ></polyline>
+                                    <polyline points="2 12 12 17 22 12"
+                                    ></polyline>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-white mb-6 scramble-target"
+                            >
+                                3D & MOTION
+                            </h3>
+                            <p
+                                class="hidden md:block text-white/50 text-sm leading-relaxed"
+                            >
+                                Tuotteet ja tilat fotorealistisena
+                                3D-mallinnuksena. Animaatiot, jotka selittävät
+                                monimutkaisenkin asian sekunneissa.
+                            </p>
+                            <p
+                                class="md:hidden text-white/50 text-sm leading-relaxed"
+                            >
+                                Tuotteet ja tilat fotorealistisena
+                                3D-mallinnuksena. Animaatiot ja visualisoinnit.
+                            </p>
+                        </div>
+                        <div
+                            class="font-mono text-[10px] text-signal-blue/50 mt-8"
+                        >
+                            IMMERSIVE
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section
+            id="portfolio"
+            class="py-24 md:py-32 relative border-t border-white/10 pointer-events-auto"
+        >
+            <div class="container mx-auto px-6">
+                <div
+                    class="flex items-end justify-between mb-16 border-b border-white/10 pb-6"
+                >
+                    <h2
+                        class="font-mono text-2xl text-white flex items-center gap-3"
+                    >
+                        <span class="text-signal-blue">03.</span>
+                        <span class="scramble-target">PORTFOLIO</span>
+                    </h2>
+                    <a
+                        href="/portfolio"
+                        class="hidden md:flex items-center gap-2 font-mono text-xs text-signal-blue hover:text-white transition-colors group"
+                    >
+                        KATSO KAIKKI
+                        <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            stroke="currentColor"
+                            class="group-hover:translate-x-1 transition-transform"
+                        >
+                            <path d="M1 6h10M7 2l4 4-4 4"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <a
+                        href="/portfolio"
+                        class="group relative block aspect-video overflow-hidden border border-white/10 bg-white/5"
+                    >
+                        <div
+                            class="absolute inset-0 bg-signal-blue/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                        >
+                        </div>
+                        <img
+                            src="/floating ui design.webp"
+                            alt="Project 1"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent z-20 translate-y-4 group-hover:translate-y-0 transition-transform"
+                        >
+                            <h3 class="font-mono text-lg text-white mb-1">
+                                NEON HORIZONS
+                            </h3>
+                            <p class="text-xs text-signal-blue font-mono">
+                                WEB DESIGN / 3D
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- Project 2 -->
+                    <a
+                        href="/portfolio"
+                        class="group relative block aspect-video overflow-hidden border border-white/10 bg-white/5"
+                    >
+                        <div
+                            class="absolute inset-0 bg-signal-blue/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                        >
+                        </div>
+                        <img
+                            src="/3drender.webp"
+                            alt="Project 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent z-20 translate-y-4 group-hover:translate-y-0 transition-transform"
+                        >
+                            <h3 class="font-mono text-lg text-white mb-1">
+                                CYBER DYNAMICS
+                            </h3>
+                            <p class="text-xs text-signal-blue font-mono">
+                                MOTION GRAPHICS
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-8 md:hidden flex justify-center">
+                    <a
+                        href="/portfolio"
+                        class="hologram-btn green group w-full"
+                    >
+                        <span data-text="KATSO KAIKKI">KATSO KAIKKI</span>
+                        <div class="holo-scan-line"></div>
+                        <div class="btn-border-t"></div>
+                        <div class="btn-border-r"></div>
+                        <div class="btn-border-b"></div>
+                        <div class="btn-border-l"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section
+            id="contact"
+            class="py-24 md:py-32 relative border-t border-white/10 pointer-events-auto"
+        >
+            <div class="container mx-auto px-6 text-center">
+                <div
+                    class="inline-block p-px bg-gradient-to-r from-transparent via-signal-blue/50 to-transparent mb-12"
+                >
+                    <div
+                        class="bg-hw-black px-6 py-2 font-mono text-sm text-signal-blue"
+                    >
+                        YHTEYS
+                    </div>
+                </div>
+
+                <h2
+                    class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight scramble-target"
+                >
+                    ALOITETAAN <br class="md:hidden" /> YHTEISTYÖ
+                </h2>
+                <p
+                    class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+                >
+                    Ota yhteyttä, niin suunnitellaan yrityksellesi sopiva
+                    ratkaisu.
+                </p>
+
+                <div class="flex justify-center relative z-20">
+                    <a
+                        href="/yhteystiedot"
+                        class="hologram-btn green group w-full md:w-auto px-12 py-4 text-lg"
+                        data-text="PYYDÄ TARJOUS"
+                    >
+                        <span data-text="PYYDÄ TARJOUS">PYYDÄ TARJOUS</span>
+                        <div class="holo-scan-line"></div>
+                        <div class="btn-border-t"></div>
+                        <div class="btn-border-r"></div>
+                        <div class="btn-border-b"></div>
+                        <div class="btn-border-l"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

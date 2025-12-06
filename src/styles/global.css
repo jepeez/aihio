@@ -1,0 +1,517 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-hw-black text-white;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-hw-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-signal-blue/20 rounded-full hover:bg-signal-blue/40 transition-colors;
+}
+
+/* Selection */
+::selection {
+  @apply bg-signal-blue/30 text-white;
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0.6s ease;
+}
+
+#mobile-menu-overlay.open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Reveal Bars */
+.reveal-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.reveal-bar {
+  width: 100%;
+  flex: 1;
+  background-color: #050505;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  border-right: 1px solid rgba(2, 153, 225, 0.2);
+}
+
+.reveal-bar.top {
+  transition-delay: 0s;
+}
+
+.reveal-bar.middle {
+  transition-delay: 0.1s;
+}
+
+.reveal-bar.bottom {
+  transition-delay: 0.2s;
+}
+
+#mobile-menu-overlay.open .reveal-bar {
+  transform: scaleX(1);
+}
+
+/* Menu Background (Fade in after bars) */
+.menu-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(2, 153, 225, 0.15) 0%, rgba(5, 5, 5, 0.95) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+  z-index: 1;
+}
+
+#mobile-menu-overlay.open .menu-bg {
+  opacity: 1;
+}
+
+/* Cyber Link Styles */
+.cyber-link {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 1rem 1.5rem;
+  background: rgba(2, 153, 225, 0.05);
+  border: 1px solid rgba(2, 153, 225, 0.5);
+  color: #0299e1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  clip-path: polygon(0 0,
+      100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%);
+  transition: all 0.3s ease;
+
+  /* Animation Initial State */
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+#mobile-menu-overlay.open .cyber-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered Delays for Links */
+#mobile-menu-overlay.open .cyber-link:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+#mobile-menu-overlay.open .cyber-link:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+#mobile-menu-overlay.open .cyber-link:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+#mobile-menu-overlay.open .cyber-link:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+#mobile-menu-overlay.open .cyber-link:nth-child(5) {
+  transition-delay: 0.7s;
+}
+
+.cyber-link:hover,
+.cyber-link.active {
+  background: rgba(2, 153, 225, 0.15);
+  border-color: #0299e1;
+  box-shadow: 0 0 20px rgba(2, 153, 225, 0.2);
+  padding-left: 2rem;
+}
+
+.cyber-link.active .cyber-text {
+  animation: glitch-skew 3s infinite linear;
+}
+
+.cyber-link.active .cyber-icon {
+  opacity: 1;
+}
+
+@keyframes glitch-skew {
+
+  0%,
+  100% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+
+  5% {
+    transform: skew(-10deg);
+    text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9;
+  }
+
+  10% {
+    transform: skew(10deg);
+    text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+  }
+
+  15% {
+    transform: skew(-5deg);
+    text-shadow: -1px 0 #ff00c1, 1px 0 #00fff9;
+  }
+
+  20% {
+    transform: skew(5deg);
+    text-shadow: 1px 0 #ff00c1, -1px 0 #00fff9;
+  }
+
+  25% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+}
+
+.cyber-link .cyber-text {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  will-change: transform;
+}
+
+.cyber-link .cyber-icon {
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  will-change: transform;
+}
+
+.cyber-link:hover .cyber-icon {
+  opacity: 1;
+}
+
+/* Hamburger Menu Animation */
+.hamburger-line {
+  transition: all 0.3s ease;
+}
+
+#mobile-menu-btn.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#mobile-menu-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+#mobile-menu-btn.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hologram Button */
+.hologram-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: rgba(2, 153, 225, 0.05);
+  border: 1px solid rgba(2, 153, 225, 0.3);
+  color: #0299e1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hologram-btn:hover {
+  background: rgba(2, 153, 225, 0.15);
+  border-color: #0299e1;
+  box-shadow: 0 0 30px rgba(2, 153, 225, 0.4);
+  text-shadow: 0 0 8px rgba(2, 153, 225, 0.8);
+}
+
+.hologram-btn span {
+  position: relative;
+  z-index: 10;
+}
+
+.hologram-btn::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transform: scale(1.1);
+  filter: blur(4px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.hologram-btn:hover::before {
+  opacity: 0.8;
+  filter: blur(6px);
+  transform: scale(1.2);
+}
+
+.holo-scan-line {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(2, 153, 225, 0.5),
+      transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.hologram-btn:hover .holo-scan-line {
+  left: 100%;
+  transition: left 0.5s ease;
+}
+
+/* Glass Panel Utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Corner Brackets */
+.corner-bracket {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+/* Green Variant */
+.hologram-btn.green {
+  background: rgba(10, 255, 104, 0.05);
+  border: 1px solid rgba(10, 255, 104, 0.3);
+  color: #0aff68;
+}
+
+.hologram-btn.green:hover {
+  background: rgba(10, 255, 104, 0.15);
+  border-color: #0aff68;
+  box-shadow: 0 0 30px rgba(10, 255, 104, 0.4);
+  text-shadow: 0 0 8px rgba(10, 255, 104, 0.8);
+}
+
+.hologram-btn.green .holo-scan-line {
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(10, 255, 104, 0.5),
+      transparent);
+}
+
+/* Scanline Animations */
+@keyframes scan-vertical {
+  0% {
+    top: -100%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes scan-horizontal {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.animate-scan-vertical {
+  animation: scan-vertical 4s linear infinite;
+}
+
+.animate-scan-horizontal {
+  animation: scan-horizontal 6s linear infinite;
+}
+
+/* Button Border Animation */
+.btn-border-t,
+.btn-border-r,
+.btn-border-b,
+.btn-border-l {
+  position: absolute;
+  background-color: #0299e1;
+  box-shadow: 0 0 10px #0299e1;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.hologram-btn:hover .btn-border-t,
+.hologram-btn:hover .btn-border-r,
+.hologram-btn:hover .btn-border-b,
+.hologram-btn:hover .btn-border-l {
+  opacity: 1;
+}
+
+.btn-border-t {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #0299e1, transparent);
+  animation: btn-border-h 2s linear infinite;
+}
+
+.btn-border-r {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #0299e1, transparent);
+  animation: btn-border-v 2s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.btn-border-b {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(270deg, transparent, #0299e1, transparent);
+  animation: btn-border-h-rev 2s linear infinite;
+  animation-delay: 1s;
+}
+
+.btn-border-l {
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(0deg, transparent, #0299e1, transparent);
+  animation: btn-border-v-rev 2s linear infinite;
+  animation-delay: 1.5s;
+}
+
+/* Green variants */
+.hologram-btn.green .btn-border-t {
+  background: linear-gradient(90deg, transparent, #0aff68, transparent);
+  box-shadow: 0 0 10px #0aff68;
+}
+
+.hologram-btn.green .btn-border-r {
+  background: linear-gradient(180deg, transparent, #0aff68, transparent);
+  box-shadow: 0 0 10px #0aff68;
+}
+
+.hologram-btn.green .btn-border-b {
+  background: linear-gradient(270deg, transparent, #0aff68, transparent);
+  box-shadow: 0 0 10px #0aff68;
+}
+
+.hologram-btn.green .btn-border-l {
+  background: linear-gradient(0deg, transparent, #0aff68, transparent);
+  box-shadow: 0 0 10px #0aff68;
+}
+
+@keyframes btn-border-h {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes btn-border-v {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes btn-border-h-rev {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes btn-border-v-rev {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}

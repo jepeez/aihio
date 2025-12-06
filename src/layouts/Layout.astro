@@ -1,0 +1,1106 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+import "../styles/global.css";
+import { TransitionManager } from "../components/TransitionManager.jsx";
+import { ClientRouter } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="Aihio Visuals - Premium Digital Architect"
+        />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <ClientRouter />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="bg-hw-black text-white overflow-x-hidden selection:bg-signal-blue selection:text-hw-black"
+    >
+        <div
+            id="initial-loader"
+            class="fixed inset-0 z-[100000] bg-hw-black flex items-center justify-center"
+        >
+        </div>
+        <canvas id="grid-static" class="fixed inset-0 z-0 pointer-events-none"
+        ></canvas>
+        <canvas id="grid-active" class="fixed inset-0 z-0 pointer-events-none"
+        ></canvas>
+        <div
+            class="fixed inset-0 z-50 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(5,5,5,0.1)_100%)]"
+        >
+        </div>
+
+        <TransitionManager client:load />
+
+        <!-- HUD Corners -->
+        <div
+            class="fixed top-16 left-0 z-50 p-6 pointer-events-none hidden md:block"
+        >
+            <div class="w-16 h-16 border-l border-t border-white/20 relative">
+                <div
+                    class="absolute -top-[1px] -left-[1px] w-2 h-2 bg-signal-blue shadow-[0_0_10px_#0299e1]"
+                >
+                </div>
+            </div>
+            <div
+                class="mt-2 font-mono text-[10px] text-signal-blue/80 tracking-widest"
+            >
+                TURKU, FINLAND
+            </div>
+        </div>
+
+        <div
+            class="fixed top-16 right-0 z-50 p-6 pointer-events-none hidden md:block"
+        >
+            <div class="w-16 h-16 border-r border-t border-white/20 relative">
+                <div
+                    class="absolute -top-[1px] -right-[1px] w-2 h-2 bg-signal-blue"
+                >
+                </div>
+            </div>
+            <div
+                class="mt-2 font-mono text-[10px] text-white/40 tracking-widest"
+            >
+                EST. 2025
+            </div>
+        </div>
+
+        <div
+            class="fixed bottom-0 left-0 z-50 p-6 pointer-events-none flex flex-col-reverse hidden md:flex"
+        >
+            <div class="w-16 h-16 border-l border-b border-white/20 relative">
+                <div
+                    class="absolute -bottom-[1px] -left-[1px] w-2 h-2 bg-white/20"
+                >
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="fixed bottom-0 right-0 z-50 p-6 pointer-events-none flex flex-col-reverse items-end hidden md:flex"
+        >
+            <div class="w-16 h-16 border-r border-b border-white/20 relative">
+                <div
+                    class="absolute -bottom-[1px] -right-[1px] w-2 h-2 bg-white/20"
+                >
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav
+            class="fixed top-0 w-full z-[101] border-b border-white/10 bg-hw-black/80 backdrop-blur-sm"
+        >
+            <div
+                class="container mx-auto px-6 h-16 flex items-center justify-between"
+            >
+                <div class="flex items-center gap-2">
+                    <a href="/"
+                        ><img
+                            src="/UUSLOGO.png"
+                            alt="AIHIO Logo"
+                            class="h-10 w-auto"
+                        /></a
+                    >
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a
+                        href="/"
+                        class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
+                        >Etusivu</a
+                    >
+                    <a
+                        href="/palvelut"
+                        class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
+                        >Palvelut</a
+                    >
+                    <a
+                        href="/portfolio"
+                        class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
+                        >Portfolio</a
+                    >
+                    <a
+                        href="/tarina"
+                        class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
+                        >Meistä</a
+                    >
+                    <a
+                        href="/yhteystiedot"
+                        class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
+                        >Ota Yhteyttä</a
+                    >
+                </div>
+                <div
+                    class="hidden md:block font-mono text-[10px] border border-signal-blue/30 px-2 py-1 text-signal-blue bg-signal-blue/5 rounded"
+                >
+                    AVAILABLE FOR PROJECTS
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button
+                    id="mobile-menu-btn"
+                    class="md:hidden text-white p-2 z-50 relative w-10 h-10 flex items-center justify-center"
+                >
+                    <div class="w-6 h-5 flex flex-col justify-between absolute">
+                        <span class="hamburger-line w-full h-0.5 bg-white"
+                        ></span>
+                        <span class="hamburger-line w-full h-0.5 bg-white"
+                        ></span>
+                        <span class="hamburger-line w-full h-0.5 bg-white"
+                        ></span>
+                    </div>
+                    <span class="x-line x-line-1"></span>
+                    <span class="x-line x-line-2"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay">
+            <canvas id="menu-canvas" class="absolute inset-0 z-0"></canvas>
+            <div class="menu-bg"></div>
+            <div
+                id="mobile-menu-content"
+                class="absolute inset-0 flex flex-col items-center justify-center z-30 w-full h-full pointer-events-none"
+            >
+                <div
+                    class="flex flex-col gap-4 w-full max-w-xs px-6 pointer-events-auto justify-center items-center h-full"
+                >
+                    <a
+                        href="/"
+                        class:list={[
+                            "cyber-link",
+                            { active: Astro.url.pathname === "/" },
+                        ]}
+                    >
+                        <span class="cyber-text">ETUSIVU</span>
+                        <span class="cyber-icon">=</span>
+                    </a>
+                    <a
+                        href="/palvelut"
+                        class:list={[
+                            "cyber-link",
+                            {
+                                active: Astro.url.pathname.startsWith(
+                                    "/palvelut",
+                                ),
+                            },
+                        ]}
+                    >
+                        <span class="cyber-text">PALVELUT</span>
+                        <span class="cyber-icon">=</span>
+                    </a>
+                    <a
+                        href="/portfolio"
+                        class:list={[
+                            "cyber-link",
+                            {
+                                active: Astro.url.pathname.startsWith(
+                                    "/portfolio",
+                                ),
+                            },
+                        ]}
+                    >
+                        <span class="cyber-text">PORTFOLIO</span>
+                        <span class="cyber-icon">=</span>
+                    </a>
+                    <a
+                        href="/tarina"
+                        class:list={[
+                            "cyber-link",
+                            {
+                                active: Astro.url.pathname.startsWith(
+                                    "/tarina",
+                                ),
+                            },
+                        ]}
+                    >
+                        <span class="cyber-text">MEISTÄ</span>
+                        <span class="cyber-icon">=</span>
+                    </a>
+                    <a
+                        href="/yhteystiedot"
+                        class:list={[
+                            "cyber-link",
+                            {
+                                active: Astro.url.pathname.startsWith(
+                                    "/yhteystiedot",
+                                ),
+                            },
+                        ]}
+                    >
+                        <span class="cyber-text">OTA YHTEYTTÄ</span>
+                        <span class="cyber-icon">=</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <slot />
+
+        <!-- Footer -->
+        <footer
+            class="border-t border-white/10 bg-hw-black/80 backdrop-blur-sm relative z-10 pointer-events-auto"
+        >
+            <div class="container mx-auto px-6 py-16">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 relative"
+                >
+                    <div
+                        class="hidden md:block absolute inset-0 pointer-events-none"
+                    >
+                        <div
+                            class="absolute left-1/4 top-0 bottom-0 w-px bg-signal-blue/20 overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transparent via-signal-blue to-transparent animate-scan-vertical"
+                            >
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-2/4 top-0 bottom-0 w-px bg-signal-blue/20 overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transparent via-signal-blue to-transparent animate-scan-vertical"
+                                style="animation-delay: 1.5s;"
+                            >
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-3/4 top-0 bottom-0 w-px bg-signal-blue/20 overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transparent via-signal-blue to-transparent animate-scan-vertical"
+                                style="animation-delay: 3s;"
+                            >
+                            </div>
+                        </div>
+                        <div
+                            class="absolute top-8 left-0 right-0 h-px bg-signal-blue/10 overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-transparent via-signal-blue to-transparent animate-scan-horizontal"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col relative z-10">
+                        <a href="/" class="mb-6"
+                            ><img
+                                src="/UUSLOGO.png"
+                                alt="AIHIO Logo"
+                                class="h-12 w-auto"
+                            /></a
+                        >
+                        <p class="font-mono text-sm text-white mb-2">
+                            LUOVA DIGITOIMISTO
+                        </p>
+                        <p
+                            class="font-mono text-xs text-white/40 leading-relaxed"
+                        >
+                            Yhdistämme visuaalisen tarinankerronnan ja modernin
+                            teknologian.
+                        </p>
+                    </div>
+                    <div class="flex flex-col relative z-10">
+                        <h3
+                            class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
+                        >
+                            AIHIO
+                        </h3>
+                        <nav class="flex flex-col gap-3">
+                            <a
+                                href="/"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Etusivu</a
+                            >
+                            <a
+                                href="/portfolio"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Portfolio</a
+                            >
+                            <a
+                                href="/tarina"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Tietoa meistä</a
+                            >
+                            <a
+                                href="/yhteystiedot"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Ota yhteyttä</a
+                            >
+                        </nav>
+                    </div>
+                    <div class="flex flex-col relative z-10">
+                        <h3
+                            class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
+                        >
+                            PALVELUT
+                        </h3>
+                        <nav class="flex flex-col gap-3">
+                            <a
+                                href="/palvelut"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Verkkosivut & Verkkokaupat</a
+                            >
+                            <a
+                                href="/palvelut"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >3D-mallinnus & Renderöinti</a
+                            >
+                            <a
+                                href="/palvelut"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Videotuotanto & Editointi</a
+                            >
+                        </nav>
+                    </div>
+                    <div class="flex flex-col relative z-10">
+                        <h3
+                            class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
+                        >
+                            VERKOSSA
+                        </h3>
+                        <nav class="flex flex-col gap-3">
+                            <a
+                                href="#"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >Instagram</a
+                            >
+                            <a
+                                href="#"
+                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                >LinkedIn</a
+                            >
+                        </nav>
+                    </div>
+                </div>
+                <div
+                    class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
+                >
+                    <div class="font-mono text-xs text-white/40">
+                        &copy; 2025 Aihio Visuals. Kaikki oikeudet pidätetään.
+                    </div>
+                    <div
+                        class="font-mono text-xs text-white/40 flex items-center gap-2"
+                    >
+                        <span
+                            class="w-2 h-2 bg-signal-blue rounded-full animate-pulse"
+                        ></span>
+                        <span>AVAILABLE FOR PROJECTS</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            import { ScrambleText } from "../scripts/scramble.js";
+            import { MagneticButton } from "../scripts/magnetic.js";
+
+            // Initialize Scramble Effect
+            const initScramble = () => {
+                const elements = document.querySelectorAll(".scramble-target");
+                elements.forEach((el) => {
+                    new ScrambleText(el);
+                });
+            };
+
+            // Initialize Magnetic Buttons
+            const initMagnetic = () => {
+                // Navigation Links
+                const navLinks = document.querySelectorAll(
+                    "nav a:not(:has(img))",
+                );
+                navLinks.forEach(
+                    (el) => new MagneticButton(el, { strength: 5, ease: 0.1 }),
+                );
+
+                // CTA Buttons
+                const buttons = document.querySelectorAll(".magnetic-button");
+                buttons.forEach(
+                    (el) =>
+                        new MagneticButton(el, { strength: 15, ease: 0.08 }),
+                );
+            };
+
+            // Mobile Menu Logic
+            const initMobileMenu = () => {
+                const menuBtn = document.getElementById("mobile-menu-btn");
+                const mobileMenuOverlay = document.getElementById(
+                    "mobile-menu-overlay",
+                );
+
+                if (menuBtn && mobileMenuOverlay) {
+                    menuBtn.addEventListener("click", () => {
+                        isMenuOpen = !isMenuOpen;
+                        if (isMenuOpen) {
+                            // Update order right before opening to ensure correct origin
+                            updateMenuOrder();
+                            mobileMenuOverlay.classList.add("open");
+                            menuBtn.classList.add("open");
+                            document.body.style.overflow = "hidden";
+
+                            // Reset and start menu animation
+                            menuAnimationProgress = 0;
+                        } else {
+                            mobileMenuOverlay.classList.remove("open");
+                            menuBtn.classList.remove("open");
+                            document.body.style.overflow = "";
+                        }
+                    });
+                }
+            };
+
+            // Grid Animation Globals
+            let canvasStatic,
+                ctxStatic,
+                canvasActive,
+                ctxActive,
+                canvasMenu,
+                ctxMenu;
+            let width, height;
+            let hexagons = [];
+            let gridMap = []; // 2D array for fast spatial lookup: gridMap[col][row]
+            let hexRadius = 25;
+            let hexHeight, hexWidth, hexXSpacing, hexYSpacing;
+            let isMobile = false;
+            let mouse = { x: -1000, y: -1000 };
+            let lastMouse = { x: -1000, y: -1000 }; // For optimization
+            let ripples = [];
+            let redPings = [];
+            let isAnimating = true;
+            let animationFrameId;
+            let lastTime = 0; // For delta time
+            let cachedActiveHexes = []; // Cache for neighbor search
+            let cachedClosestHex = null;
+
+            // Menu Animation Globals
+            let isMenuOpen = false;
+            let menuAnimationProgress = 0;
+            let menuHexagonOrder = [];
+            let menuAnimationSpeed = 0; // Calculated based on screen size
+            let menuTracers = []; // Glowing lines for menu
+            let inputIntensity = 0;
+            let isTouching = false;
+
+            class Hexagon {
+                constructor(x, y, row, col) {
+                    this.x = x;
+                    this.y = y;
+                    this.row = row;
+                    this.col = col;
+                }
+
+                draw(ctx, strokeStyle = null, fillStyle = null, lineWidth = 1) {
+                    ctx.beginPath();
+                    for (let i = 0; i < 6; i++) {
+                        const angle = (Math.PI / 3) * i;
+                        const hx = this.x + hexRadius * Math.cos(angle);
+                        const hy = this.y + hexRadius * Math.sin(angle);
+                        if (i === 0) ctx.moveTo(hx, hy);
+                        else ctx.lineTo(hx, hy);
+                    }
+                    ctx.closePath();
+
+                    if (fillStyle) {
+                        ctx.fillStyle = fillStyle;
+                        ctx.fill();
+                    }
+                    if (strokeStyle) {
+                        ctx.strokeStyle = strokeStyle;
+                        ctx.lineWidth = lineWidth;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            function initGrid() {
+                hexagons = [];
+                gridMap = [];
+
+                const rows = Math.ceil(height / hexYSpacing) + 1;
+                const cols = Math.ceil(width / hexXSpacing) + 1;
+
+                for (let c = 0; c < cols; c++) {
+                    gridMap[c] = [];
+                    for (let r = 0; r < rows; r++) {
+                        let x = c * hexXSpacing;
+                        let y = r * hexYSpacing;
+                        if (c % 2 === 1) {
+                            y += hexYSpacing / 2;
+                        }
+                        const hex = new Hexagon(x, y, r, c);
+                        hexagons.push(hex);
+                        gridMap[c][r] = hex;
+                    }
+                }
+
+                updateMenuOrder();
+            }
+
+            function updateMenuOrder() {
+                // Sort hexagons for Radial animation starting from menu button
+                const menuBtn = document.getElementById("mobile-menu-btn");
+                let originX = width; // Default to top-right
+                let originY = 0;
+
+                if (menuBtn) {
+                    const rect = menuBtn.getBoundingClientRect();
+                    originX = rect.left + rect.width / 2;
+                    originY = rect.top + rect.height / 2;
+                }
+
+                const items = hexagons.map((hex, index) => {
+                    const dist = Math.hypot(hex.x - originX, hex.y - originY);
+                    // Quantize distance to create "rings" of hexagons
+                    // This emphasizes the grid structure instead of a smooth circle
+                    const ringSize = hexWidth * 0.5;
+                    const ringIndex = Math.floor(dist / ringSize);
+                    // Add slight deterministic variation within rings based on position
+                    // to prevent it from looking too artificial
+                    const variation = (hex.col % 3) * 5 + (hex.row % 3) * 5;
+
+                    return {
+                        index: index,
+                        value: ringIndex * ringSize + variation,
+                    };
+                });
+
+                // Sort based on distance
+                items.sort((a, b) => a.value - b.value);
+
+                // Extract the indices
+                menuHexagonOrder = items.map((item) => item.index);
+
+                // If menu is open during resize, restart animation to ensure coverage
+                if (isMenuOpen) {
+                    menuAnimationProgress = 0;
+                }
+            }
+
+            function getNeighbor(hex, edgeIndex) {
+                // Calculate midpoint of edge
+                const angle1 = (Math.PI / 3) * edgeIndex;
+                const angle2 = (Math.PI / 3) * ((edgeIndex + 1) % 6);
+                const midX =
+                    hex.x +
+                    (hexRadius * (Math.cos(angle1) + Math.cos(angle2))) / 2;
+                const midY =
+                    hex.y +
+                    (hexRadius * (Math.sin(angle1) + Math.sin(angle2))) / 2;
+
+                // Expected neighbor center (reflection across edge)
+                const nX = midX + (midX - hex.x);
+                const nY = midY + (midY - hex.y);
+
+                // Grid lookup
+                const c = Math.round(nX / hexXSpacing);
+                // Adjust Y for odd columns
+                const yOffset = Math.abs(c) % 2 === 1 ? hexYSpacing / 2 : 0;
+                const r = Math.round((nY - yOffset) / hexYSpacing);
+
+                if (gridMap[c] && gridMap[c][r]) {
+                    return gridMap[c][r];
+                }
+                return null;
+            }
+
+            function updateAndDrawTracers(ctx) {
+                // Digital Rain Logic - DISABLED
+                // const maxDrops = 1; // Reduced number of drops
+                // // Spawn new drops
+                // if (menuTracers.length < maxDrops && Math.random() < 0.02) {
+                //     const c = Math.floor(Math.random() * gridMap.length);
+                //     // Only spawn if this column doesn't have a drop near the top to prevent clumping
+                //     const hasDropTop = menuTracers.some(
+                //         (t) => t.col === c && t.row < 10,
+                //     );
+                //     if (!hasDropTop) {
+                //         menuTracers.push({
+                //             col: c,
+                //             row: -8, // Start well above screen
+                //             speed: 0.05 + Math.random() * 0.05, // Much slower
+                //             trailLen: 8 + Math.floor(Math.random() * 8), // Longer trails
+                //         });
+                //     }
+                // }
+                // ctx.shadowBlur = 15;
+                // ctx.shadowColor = "#0299e1";
+                // for (let i = menuTracers.length - 1; i >= 0; i--) {
+                //     const t = menuTracers[i];
+                //     t.row += t.speed;
+                //     // Remove if off screen
+                //     // Assuming max rows is roughly height / hexYSpacing
+                //     // A safe upper bound is gridMap[0].length
+                //     const maxRows = gridMap[0] ? gridMap[0].length : 50;
+                //     if (t.row - t.trailLen > maxRows) {
+                //         menuTracers.splice(i, 1);
+                //         continue;
+                //     }
+                //     // Draw Drop and Trail
+                //     const headRow = Math.floor(t.row);
+                //     for (let j = 0; j < t.trailLen; j++) {
+                //         const r = headRow - j;
+                //         // Check if row is valid
+                //         if (gridMap[t.col] && gridMap[t.col][r]) {
+                //             const hex = gridMap[t.col][r];
+                //             // Calculate opacity: Head is 1.0, tail fades to 0
+                //             const opacity = Math.max(0, 1 - j / t.trailLen);
+                //             if (j === 0) {
+                //                 // Head: Bright stroke, NO fill
+                //                 hex.draw(
+                //                     ctx,
+                //                     `rgba(2, 153, 225, ${opacity})`,
+                //                     null,
+                //                     2,
+                //                 );
+                //             } else {
+                //                 // Trail: Fading stroke
+                //                 hex.draw(
+                //                     ctx,
+                //                     `rgba(2, 153, 225, ${opacity * 0.6})`,
+                //                     null,
+                //                     1,
+                //                 );
+                //             }
+                //         }
+                //     }
+                // }
+                // ctx.shadowBlur = 0;
+            }
+
+            function drawStaticGrid() {
+                if (!ctxStatic) return;
+                ctxStatic.clearRect(0, 0, width, height);
+                ctxStatic.lineWidth = 1;
+
+                const opacity = isMobile ? 0.07 : 0.03;
+                hexagons.forEach((hex) => {
+                    hex.draw(ctxStatic, `rgba(255, 255, 255, ${opacity})`);
+                });
+            }
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                isMobile = width < 768;
+
+                hexRadius = isMobile ? 35 : 25;
+                hexHeight = hexRadius * Math.sqrt(3);
+                hexWidth = hexRadius * 2;
+                hexXSpacing = hexWidth * 0.75;
+                hexYSpacing = hexHeight;
+
+                if (canvasStatic && canvasActive) {
+                    canvasStatic.width = width;
+                    canvasStatic.height = height;
+                    canvasActive.width = width;
+                    canvasActive.height = height;
+                }
+
+                if (canvasMenu) {
+                    canvasMenu.width = width;
+                    canvasMenu.height = height;
+                }
+
+                initGrid();
+                drawStaticGrid();
+
+                // Clear cache on resize
+                cachedActiveHexes = [];
+                cachedClosestHex = null;
+                lastMouse = { x: -1000, y: -1000 };
+            }
+
+            function animate(currentTime) {
+                if (!isAnimating) return;
+                if (!ctxActive) return;
+
+                // Delta Time Calculation
+                if (!lastTime || !currentTime) {
+                    lastTime = currentTime || performance.now();
+                }
+
+                const deltaTime = currentTime - lastTime;
+                lastTime = currentTime;
+
+                // Normalize to target 60fps (approx 16.67ms per frame)
+                const scale = Math.min(deltaTime / 16.67, 4); // Cap at 4x speed
+
+                ctxActive.clearRect(0, 0, width, height);
+                ctxActive.globalCompositeOperation = "lighter";
+
+                // Input Intensity Logic
+                if (isMobile) {
+                    if (isTouching) {
+                        inputIntensity = 1;
+                    } else {
+                        inputIntensity = Math.max(
+                            0,
+                            inputIntensity - deltaTime / 500,
+                        );
+                    }
+                } else {
+                    inputIntensity = 1;
+                }
+
+                // Optimized Neighbor Search with Caching
+                // Only recalculate if mouse moved significantly
+                if (
+                    Math.abs(mouse.x - lastMouse.x) > 1 ||
+                    Math.abs(mouse.y - lastMouse.y) > 1
+                ) {
+                    lastMouse.x = mouse.x;
+                    lastMouse.y = mouse.y;
+
+                    const approxCol = Math.floor(mouse.x / hexXSpacing);
+                    const approxRow = Math.floor(mouse.y / hexYSpacing);
+                    const searchRange = 6; // Check neighbors within range
+
+                    cachedClosestHex = null;
+                    let minDist = Infinity;
+                    cachedActiveHexes = [];
+
+                    // Only check hexagons in the vicinity of the mouse
+                    for (
+                        let c = approxCol - searchRange;
+                        c <= approxCol + searchRange;
+                        c++
+                    ) {
+                        if (!gridMap[c]) continue;
+                        for (
+                            let r = approxRow - searchRange;
+                            r <= approxRow + searchRange;
+                            r++
+                        ) {
+                            const hex = gridMap[c][r];
+                            if (!hex) continue;
+
+                            const dist = Math.hypot(
+                                hex.x - mouse.x,
+                                hex.y - mouse.y,
+                            );
+                            if (dist < 200) {
+                                cachedActiveHexes.push({ hex, dist });
+                                if (dist < minDist) {
+                                    minDist = dist;
+                                    cachedClosestHex = hex;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Draw Cached Hexes
+                if (cachedClosestHex) {
+                    const glowRadius = 100;
+                    cachedActiveHexes.forEach(({ hex, dist }) => {
+                        if (dist < glowRadius) {
+                            const intensity = 1 - dist / glowRadius;
+                            if (inputIntensity > 0.01) {
+                                if (hex === cachedClosestHex) {
+                                    ctxActive.shadowBlur = 20;
+                                    ctxActive.shadowColor = `rgba(2, 153, 225, ${inputIntensity})`;
+                                    hex.draw(
+                                        ctxActive,
+                                        `rgba(2, 153, 225, ${inputIntensity})`,
+                                        `rgba(2, 153, 225, ${0.3 * inputIntensity})`,
+                                        2,
+                                    );
+                                    ctxActive.shadowBlur = 0;
+                                } else {
+                                    hex.draw(
+                                        ctxActive,
+                                        `rgba(2, 153, 225, ${intensity * 0.5 * inputIntensity})`,
+                                        null,
+                                        1,
+                                    );
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Ripples
+                for (let i = ripples.length - 1; i >= 0; i--) {
+                    const ripple = ripples[i];
+                    ripple.radius += ripple.speed * scale;
+                    ripple.life -= ripple.decay * scale;
+
+                    if (ripple.life <= 0) {
+                        ripples.splice(i, 1);
+                        continue;
+                    }
+
+                    ctxActive.beginPath();
+                    ctxActive.arc(
+                        ripple.x,
+                        ripple.y,
+                        ripple.radius,
+                        0,
+                        Math.PI * 2,
+                    );
+                    ctxActive.strokeStyle = `rgba(2, 153, 225, ${ripple.life * 0.5})`;
+                    ctxActive.lineWidth = 2;
+                    ctxActive.stroke();
+                }
+
+                // Red Pings
+                const pingChance = isMobile ? 0.002 : 0.01;
+                if (Math.random() < pingChance * scale && hexagons.length > 0) {
+                    const randomHex =
+                        hexagons[Math.floor(Math.random() * hexagons.length)];
+                    redPings.push({
+                        hex: randomHex,
+                        life: 1.0,
+                        decay: 0.01 * scale,
+                    });
+                }
+
+                for (let i = redPings.length - 1; i >= 0; i--) {
+                    const ping = redPings[i];
+                    ping.life -= ping.decay * scale;
+
+                    if (ping.life <= 0) {
+                        redPings.splice(i, 1);
+                        continue;
+                    }
+
+                    const opacity = ping.life;
+                    ping.hex.draw(
+                        ctxActive,
+                        `rgba(255, 50, 50, ${opacity})`,
+                        `rgba(255, 50, 50, ${opacity * 0.1})`,
+                        1,
+                    );
+                }
+
+                // Menu Animation
+                if (ctxMenu && hexagons.length > 0) {
+                    const totalHexagons = hexagons.length;
+                    const speed = Math.ceil(totalHexagons / (60 * 0.5)) * scale; // 0.5s duration
+
+                    if (isMenuOpen) {
+                        // OPENING: Top to Bottom
+                        if (menuAnimationProgress < totalHexagons) {
+                            menuAnimationProgress = Math.min(
+                                menuAnimationProgress + speed,
+                                totalHexagons,
+                            );
+                        }
+                    } else {
+                        // CLOSING: Bottom to Top
+                        if (menuAnimationProgress > 0) {
+                            menuAnimationProgress = Math.max(
+                                menuAnimationProgress - speed,
+                                0,
+                            );
+                        }
+                    }
+
+                    // Render
+                    if (menuAnimationProgress > 0) {
+                        ctxMenu.clearRect(0, 0, width, height);
+
+                        // Batch Draw: Background Fill & Gap Sealing
+                        ctxMenu.beginPath();
+                        const count = Math.floor(menuAnimationProgress);
+
+                        for (let i = 0; i < count; i++) {
+                            const hexIndex = menuHexagonOrder[i];
+                            const hex = hexagons[hexIndex];
+                            if (hex) {
+                                // Add hex path to current context path
+                                for (let j = 0; j < 6; j++) {
+                                    const angle = (Math.PI / 3) * j;
+                                    const hx =
+                                        hex.x + hexRadius * Math.cos(angle);
+                                    const hy =
+                                        hex.y + hexRadius * Math.sin(angle);
+                                    if (j === 0) ctxMenu.moveTo(hx, hy);
+                                    else ctxMenu.lineTo(hx, hy);
+                                }
+                                ctxMenu.closePath();
+                            }
+                        }
+
+                        // Fill and Seal Gaps
+                        ctxMenu.fillStyle = "#050505";
+                        ctxMenu.fill();
+                        ctxMenu.lineWidth = 2; // Reduced width
+                        // ctxMenu.lineJoin = "round"; // Removed to keep sharp hex edges
+                        ctxMenu.strokeStyle = "#050505";
+                        ctxMenu.stroke();
+
+                        // Batch Draw: Visual Borders
+                        ctxMenu.beginPath();
+                        for (let i = 0; i < count; i++) {
+                            const hexIndex = menuHexagonOrder[i];
+                            const hex = hexagons[hexIndex];
+                            if (hex) {
+                                for (let j = 0; j < 6; j++) {
+                                    const angle = (Math.PI / 3) * j;
+                                    const hx =
+                                        hex.x + hexRadius * Math.cos(angle);
+                                    const hy =
+                                        hex.y + hexRadius * Math.sin(angle);
+                                    if (j === 0) ctxMenu.moveTo(hx, hy);
+                                    else ctxMenu.lineTo(hx, hy);
+                                }
+                                ctxMenu.closePath();
+                            }
+                        }
+
+                        ctxMenu.lineWidth = 1;
+                        ctxMenu.strokeStyle = "rgba(2, 153, 225, 0.15)";
+                        ctxMenu.stroke();
+
+                        // Draw Tracers
+                        updateAndDrawTracers(ctxMenu);
+                    } else {
+                        // Ensure clear when closed
+                        ctxMenu.clearRect(0, 0, width, height);
+                        menuTracers = []; // Clear tracers
+                    }
+                }
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            // Setup Grid System
+            const setupGrid = () => {
+                canvasStatic = document.getElementById("grid-static");
+                canvasActive = document.getElementById("grid-active");
+
+                if (canvasStatic && canvasActive) {
+                    ctxStatic = canvasStatic.getContext("2d");
+                    ctxActive = canvasActive.getContext("2d");
+                }
+
+                canvasMenu = document.getElementById("menu-canvas");
+                if (canvasMenu) {
+                    ctxMenu = canvasMenu.getContext("2d");
+                }
+
+                if (canvasStatic || canvasActive || canvasMenu) {
+                    resize();
+                    isAnimating = true;
+                    requestAnimationFrame(animate);
+                }
+            };
+
+            // Global Event Listeners (Run once)
+            window.addEventListener("resize", resize);
+            window.addEventListener("mousemove", (e) => {
+                if (!isMobile) {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+                }
+            });
+            window.addEventListener(
+                "touchstart",
+                (e) => {
+                    isTouching = true;
+                    mouse.x = e.touches[0].clientX;
+                    mouse.y = e.touches[0].clientY;
+                },
+                { passive: true },
+            );
+            window.addEventListener(
+                "touchmove",
+                (e) => {
+                    mouse.x = e.touches[0].clientX;
+                    mouse.y = e.touches[0].clientY;
+                },
+                { passive: true },
+            );
+            window.addEventListener("touchend", () => {
+                isTouching = false;
+            });
+            window.addEventListener("click", (e) => {
+                // Optimized click search
+                const approxCol = Math.floor(e.clientX / hexXSpacing);
+                const approxRow = Math.floor(e.clientY / hexYSpacing);
+                const searchRange = 2;
+
+                let closestHex = null;
+                let minDist = Infinity;
+
+                for (
+                    let c = approxCol - searchRange;
+                    c <= approxCol + searchRange;
+                    c++
+                ) {
+                    if (!gridMap[c]) continue;
+                    for (
+                        let r = approxRow - searchRange;
+                        r <= approxRow + searchRange;
+                        r++
+                    ) {
+                        const hex = gridMap[c][r];
+                        if (!hex) continue;
+                        const dist = Math.hypot(
+                            hex.x - e.clientX,
+                            hex.y - e.clientY,
+                        );
+                        if (dist < minDist) {
+                            minDist = dist;
+                            closestHex = hex;
+                        }
+                    }
+                }
+
+                if (closestHex && ripples.length < 3) {
+                    ripples.push({
+                        x: closestHex.x,
+                        y: closestHex.y,
+                        radius: 0,
+                        speed: isMobile ? 8 : 15,
+                        maxRadius: Math.max(width, height) * 1.5,
+                        life: 1.0,
+                        decay: isMobile ? 0.001 : 0.005,
+                    });
+                }
+            });
+
+            // Lifecycle Management
+            const init = () => {
+                initScramble();
+                initMagnetic();
+                initMobileMenu();
+                setupGrid();
+            };
+
+            const cleanup = () => {
+                isAnimating = false;
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+            };
+
+            document.addEventListener("astro:page-load", init);
+            document.addEventListener("astro:before-swap", cleanup);
+
+            // Initial load (in case astro:page-load doesn't fire on first visit in some setups, though it should)
+            // init(); // astro:page-load handles it.
+        </script>
+    </body>
+</html>

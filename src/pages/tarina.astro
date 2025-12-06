@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="AIHIO VISUALS // TARINA">
+    <main class="relative z-10 pt-32 pb-20">
+        <div class="container mx-auto px-6">
+            <h1
+                class="text-4xl md:text-6xl font-bold text-white mb-12 tracking-tight"
+            >
+                TARINA
+            </h1>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <p class="text-white/70 text-lg leading-relaxed mb-6">
+                        Aihio Visuals syntyi halusta yhdistää insinöörimäinen
+                        tarkkuus taiteelliseen luovuuteen. Uskomme, että paras
+                        design ei ole vain kaunista pintaa, vaan se on
+                        toiminnallisuutta, joka tuntuu vaivattomalta.
+                    </p>
+                    <p class="text-white/70 text-lg leading-relaxed mb-6">
+                        Toimimme digitaalisen maailman rajapinnassa, jossa koodi
+                        kohtaa estetiikan. Lähestymistapamme on
+                        teknologiavetoinen mutta ihmisläheinen.
+                    </p>
+                    <div
+                        class="font-mono text-signal-blue text-sm mt-8 border-l-2 border-signal-blue pl-4"
+                    >
+                        "Design on älykkyyttä, joka on tehty näkyväksi."
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="relative h-[400px] rounded-lg overflow-hidden border border-white/10 group mt-12"
+            >
+                <img
+                    src="/camera-drone.webp"
+                    alt="Production Gear"
+                    class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+                >
+                </div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <div class="font-mono text-xs text-signal-blue mb-2">
+                        PRODUCTION_GEAR
+                    </div>
+                    <div class="text-white font-bold text-lg">
+                        Tools of the Trade
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-8 mt-12">
+                <h3
+                    class="font-mono text-xs text-white/40 mb-6 tracking-widest border-b border-white/10 pb-2"
+                >
+                    YDINARVOT
+                </h3>
+                <ul class="space-y-4 text-white/80 font-mono text-sm">
+                    <li class="flex items-center gap-3">
+                        <span class="w-1 h-1 bg-signal-blue"></span>
+                        LÄPINÄKYVYYS
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-1 h-1 bg-signal-blue"></span>
+                        INNOVAATIO
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-1 h-1 bg-signal-blue"></span>
+                        TARKKUUS
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-1 h-1 bg-signal-blue"></span>
+                        INTOHIMO
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</Layout>
