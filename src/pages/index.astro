@@ -2,12 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import HeroScene from "../components/HeroScene.jsx";
 import ServicesSlider from "../components/ServicesSlider.jsx";
+import WireframeIcon from "../components/WireframeIcon.jsx";
 ---
 
 <Layout title="AIHIO VISUALS // DIGITAL AGENCY">
     <main class="relative z-10 pt-16 pointer-events-none">
         <!-- Hero Section -->
         <section
+            id="hero"
             class="min-h-screen flex items-center justify-center relative pb-32 md:pb-40"
         >
             <div class="absolute inset-0 z-20 pointer-events-none">
@@ -22,45 +24,44 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                         class="hidden md:flex font-mono text-signal-blue text-sm mb-4 tracking-[0.2em] items-center gap-2"
                     >
                         <span class="w-4 h-[1px] bg-signal-blue"></span>
-                        TEKNOLOGIA KOHTAA LUOVUUDEN
+                        STRATEGISTA VERKKOSIVUSUUNNITTELUA
                     </div>
                     <h1
-                        class="text-5xl md:text-[5rem] font-bold text-white tracking-tight leading-none mb-6"
+                        class="text-4xl md:text-7xl font-bold text-white tracking-tight leading-tight mb-6"
                     >
-                        Herätä brändisi eloon <br />
-                        <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-white/50 to-white/10"
-                            >– joka ulottuvuudessa.</span
+                        Räätälöityjä verkkosivustoja, jotka tekevät <span
+                            class="text-signal-blue">tulosta.</span
                         >
                     </h1>
                     <p
-                        class="hidden md:block text-white/90 text-lg md:text-xl max-w-2xl font-light leading-relaxed border-l border-signal-blue/30 pl-6"
+                        class="text-white/90 text-lg md:text-xl max-w-2xl font-light leading-relaxed border-l border-signal-blue/30 pl-6"
                     >
-                        Emme tee vain mainoksia, luomme elämyksiä. Modernit
-                        verkkosivut, elokuvallinen videotuotanto, 3D-animaatiot
-                        ja valokuvaus, jotka erottavat sinut massasta.
-                    </p>
-                    <p
-                        class="md:hidden text-white/90 text-lg max-w-2xl font-light leading-relaxed border-l border-signal-blue/30 pl-6"
-                    >
-                        Modernit verkkosivut, valokuvaus ja 3D-tuotannot, jotka
-                        erottavat sinut massasta.
+                        Modernit ja <span class="font-bold text-white"
+                            >salamannopeat</span
+                        > verkkosivut, jotka on optimoitu muuttamaan kävijät <span
+                            class="font-bold text-white">asiakkaiksi</span
+                        >.
                     </p>
 
-                    <div class="mt-12 flex flex-wrap gap-4">
-                        <a
-                            href="/palvelut"
-                            class="hologram-btn green group w-full md:w-auto md:px-12"
-                        >
-                            <span data-text="TUTUSTU PALVELUIHIN"
-                                >TUTUSTU PALVELUIHIN</span
+                    <div class="mt-8">
+                        <div class="flex flex-wrap gap-4">
+                            <a
+                                href="/hintalaskuri"
+                                class="hologram-btn green group w-full md:w-auto md:px-12"
                             >
-                            <div class="holo-scan-line"></div>
-                            <div class="btn-border-t"></div>
-                            <div class="btn-border-r"></div>
-                            <div class="btn-border-b"></div>
-                            <div class="btn-border-l"></div>
-                        </a>
+                                <span data-text="LASKE HINTA NYT"
+                                    >LASKE HINTA NYT</span
+                                >
+                                <div class="holo-scan-line"></div>
+                                <div class="btn-border-t"></div>
+                                <div class="btn-border-r"></div>
+                                <div class="btn-border-b"></div>
+                                <div class="btn-border-l"></div>
+                            </a>
+                        </div>
+                        <p class="mt-4 text-sm text-white/50 font-mono">
+                            Hinta-arvio 30 sekunnissa – ei sitoutumista.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -88,93 +89,121 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
             class="py-24 md:py-32 relative border-t border-white/5 bg-hw-black/50 backdrop-blur-sm pointer-events-auto"
         >
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div
+                    class="flex items-end justify-between mb-16 border-b border-white/10 pb-6"
+                >
+                    <h2
+                        class="font-mono text-2xl text-white flex items-center gap-3"
+                    >
+                        <span class="text-signal-blue">01.</span>
+                        <span class="scramble-target">YDIN</span>
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <!-- Text Content (Left) -->
                     <div>
                         <h2
-                            class="font-mono text-2xl text-white mb-8 flex items-center gap-3"
+                            class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight"
                         >
-                            <span class="text-signal-blue">01.</span>
-                            <span class="scramble-target">YDIN</span>
+                            Verkkosivut, jotka myyvät <span
+                                class="text-signal-blue">puolestasi.</span
+                            >
                         </h2>
 
-                        <!-- Mobile Text -->
-                        <div class="md:hidden">
-                            <p class="text-white/70 text-lg leading-relaxed">
-                                Yhdistämme luovan suunnittelun ja teknisen
-                                osaamisen. Kun yksi kumppani hoitaa kaiken
-                                3D-kuvista koodiin, brändisi pysyy yhtenäisenä
-                                ja säästät aikaa.
-                            </p>
-                        </div>
-
-                        <!-- Desktop Text -->
-                        <div class="hidden md:block space-y-6">
-                            <p class="text-white/70 text-lg leading-relaxed">
-                                Erottuminen ei vaadi monimutkaisia termejä, vaan
-                                selkeyttä ja laatua. Yhdistämme luovan
-                                suunnittelun ja vahvan teknisen osaamisen
-                                toimivaksi kokonaisuudeksi.
-                            </p>
-                            <p class="text-white/70 text-lg leading-relaxed">
-                                Kun yksi kumppani hoitaa kaiken 3D-kuvista ja
-                                videoista nettisivujen koodiin, brändisi pysyy
-                                yhtenäisenä. Ei turhaa säätöä usean eri
-                                toimiston välillä, vaan yksi selkeä visio ja
-                                laadukas lopputulos.
-                            </p>
-                        </div>
+                        <p class="text-white/70 text-lg leading-relaxed mb-6">
+                            Sivustosi ei kuulu olla vain kulu, vaan yksi
+                            yrityksesi tärkeimmistä tulonlähteistä ja
+                            myyntikanavista.
+                        </p>
+                        <p class="text-white/70 text-lg leading-relaxed">
+                            Rakennamme sivuston, joka herättää luottamusta
+                            ensisilmäyksellä ja tekee ostamisesta sekä
+                            asioinnista kitkatonta.
+                        </p>
                     </div>
-                    <div
-                        class="hidden md:block glass-panel p-8 rounded-sm relative overflow-hidden"
-                    >
-                        <div class="absolute top-0 right-0 p-2">
+
+                    <!-- Benefits Grid (Right) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Card 1: Salamannopea -->
+                        <div
+                            class="p-6 rounded-lg bg-black/40 border border-signal-blue/20 hover:border-signal-blue/50 transition-colors group relative overflow-hidden"
+                        >
                             <div
-                                class="w-2 h-2 bg-noise-red rounded-full animate-pulse"
+                                class="absolute top-6 right-6 w-16 h-16 pointer-events-none"
                             >
+                                <WireframeIcon
+                                    icon="lightning"
+                                    client:visible
+                                />
+                            </div>
+                            <div class="pr-16 relative z-10">
+                                <h3 class="text-white font-bold mb-2">
+                                    Salamannopea
+                                </h3>
+                                <p class="text-white/50 text-sm">
+                                    Sivut aukeavat heti. Asiakkaasi eivät joudu
+                                    odottamaan.
+                                </p>
                             </div>
                         </div>
-                        <h3
-                            class="font-mono text-xs text-white/40 mb-6 tracking-widest border-b border-white/10 pb-2"
-                        >
-                            VAHVUUDET
-                        </h3>
-                        <div class="space-y-3 font-mono text-sm">
-                            <div class="flex justify-between text-white/80">
-                                <span>VISUAALISUUS</span>
-                                <span class="text-signal-blue">PREMIUM</span>
-                            </div>
-                            <div class="flex justify-between text-white/80">
-                                <span>TEKNOLOGIA</span>
-                                <span class="text-signal-blue">SKALAUTUVA</span>
-                            </div>
-                            <div class="flex justify-between text-white/80">
-                                <span>KÄYTTÄJÄKOKEMUS</span>
-                                <span class="text-signal-blue"
-                                    >INTUITIIVINEN</span
-                                >
-                            </div>
-                            <div class="flex justify-between text-white/80">
-                                <span>EROTTUVUUS</span>
-                                <span class="text-signal-blue">TAATTU</span>
-                            </div>
 
-                            <div class="mt-6 pt-4 border-t border-white/10">
-                                <div class="w-full bg-white/10 h-1 mt-1">
-                                    <div
-                                        class="bg-signal-blue h-full w-full relative overflow-hidden"
-                                    >
-                                        <div
-                                            class="absolute inset-0 bg-white/20 w-full h-full animate-[shimmer_2s_infinite]"
-                                        >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex justify-between text-sm text-white/60 mt-2"
-                                >
-                                    <span>LAATU</span>
-                                    <span>TINKIMÄTÖN</span>
-                                </div>
+                        <!-- Card 2: Mobiili edellä -->
+                        <div
+                            class="p-6 rounded-lg bg-black/40 border border-signal-blue/20 hover:border-signal-blue/50 transition-colors group relative overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-6 right-6 w-16 h-16 pointer-events-none"
+                            >
+                                <WireframeIcon icon="phone" client:visible />
+                            </div>
+                            <div class="pr-16 relative z-10">
+                                <h3 class="text-white font-bold mb-2">
+                                    Mobiili edellä
+                                </h3>
+                                <p class="text-white/50 text-sm">
+                                    Suunniteltu toimimaan täydellisesti
+                                    puhelimella.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Löytyy Googlesta -->
+                        <div
+                            class="p-6 rounded-lg bg-black/40 border border-signal-blue/20 hover:border-signal-blue/50 transition-colors group relative overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-6 right-6 w-16 h-16 pointer-events-none"
+                            >
+                                <WireframeIcon icon="globe" client:visible />
+                            </div>
+                            <div class="pr-16 relative z-10">
+                                <h3 class="text-white font-bold mb-2">
+                                    Löytyy Googlesta
+                                </h3>
+                                <p class="text-white/50 text-sm">
+                                    Rakennettu niin, että hakukoneet ymmärtävät
+                                    sisältösi.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Maksimoitu myynti -->
+                        <div
+                            class="p-6 rounded-lg bg-black/40 border border-signal-blue/20 hover:border-signal-blue/50 transition-colors group relative overflow-hidden"
+                        >
+                            <div
+                                class="absolute top-6 right-6 w-16 h-16 pointer-events-none"
+                            >
+                                <WireframeIcon icon="chart" client:visible />
+                            </div>
+                            <div class="pr-16 relative z-10">
+                                <h3 class="text-white font-bold mb-2">
+                                    Maksimoitu myynti
+                                </h3>
+                                <p class="text-white/50 text-sm">
+                                    Optimoitu rakenne maksimoi myynnin ja
+                                    yhteydenotot.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -215,11 +244,6 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                     >
                         <!-- Background Image -->
                         <div class="absolute inset-0 z-0 pointer-events-none">
-                            <img
-                                src="/floating-ui-design.webp"
-                                alt=""
-                                class="w-full h-full object-cover opacity-40 md:opacity-20 group-hover:opacity-40 group-[.mobile-active]:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale group-hover:grayscale-0 group-[.mobile-active]:grayscale-0"
-                            />
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
                             >
@@ -258,36 +282,42 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                 >
-                                    <polyline points="4 17 10 11 4 5"
-                                    ></polyline>
-                                    <line x1="12" y1="19" x2="20" y2="19"
-                                    ></line>
+                                    <rect
+                                        x="3"
+                                        y="3"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                                    <rect x="14" y="13" width="4" height="4"
+                                    ></rect>
                                 </svg>
                             </div>
                             <h3
                                 class="text-xl font-bold text-white mb-6 scramble-target"
                             >
-                                WEB & BRÄNDI
+                                YRITYSSIVUSTOT
                             </h3>
                             <p
                                 class="hidden md:block text-white/50 text-sm leading-relaxed"
                             >
-                                Modernit verkkosivut ja erottuva yritysilme.
-                                Suunnittelemme logot, grafiikat ja
-                                responsiiviset sivustot, jotka on optimoitu sekä
-                                hakukoneille että käyttäjille.
+                                Moderni digitaalinen pääkonttori. Rakennamme
+                                uskottavuutta herättävät sivustot, jotka on
+                                optimoitu keräämään liidejä.
                             </p>
                             <p
                                 class="md:hidden text-white/50 text-sm leading-relaxed"
                             >
-                                Modernit verkkosivut ja erottuva yritysilme.
-                                Logot, grafiikat ja optimoidut sivustot.
+                                Moderni digitaalinen pääkonttori. Uskottavat
+                                sivustot liidien keruuseen.
                             </p>
                         </div>
                         <div
-                            class="font-mono text-[10px] text-signal-blue/50 mt-8"
+                            class="relative z-10 font-mono text-[10px] text-signal-blue/50 mt-8"
                         >
-                            VISUAL STORYTELLING
+                            CORPORATE
                         </div>
                     </div>
 
@@ -297,11 +327,6 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                     >
                         <!-- Background Image -->
                         <div class="absolute inset-0 z-0 pointer-events-none">
-                            <img
-                                src="/camera-drone.webp"
-                                alt=""
-                                class="w-full h-full object-cover opacity-40 md:opacity-20 group-hover:opacity-40 group-[.mobile-active]:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale group-hover:grayscale-0 group-[.mobile-active]:grayscale-0"
-                            />
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
                             >
@@ -327,7 +352,7 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
 
                         <div class="relative z-10 pointer-events-none">
                             <div
-                                class="w-10 h-10 border border-signal-blue/30 flex items-center justify-center mb-6 text-signal-blue"
+                                class="w-10 h-10 border border-[#0aff68]/30 flex items-center justify-center mb-6 text-[#0aff68]"
                             >
                                 <svg
                                     width="24"
@@ -339,51 +364,36 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                 >
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line
-                                        x1="14.31"
-                                        y1="8"
-                                        x2="20.05"
-                                        y2="17.94"></line>
-                                    <line x1="9.69" y1="8" x2="21.17" y2="8"
-                                    ></line>
-                                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"
-                                    ></line>
-                                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"
-                                    ></line>
-                                    <line x1="14.31" y1="16" x2="2.83" y2="16"
-                                    ></line>
-                                    <line
-                                        x1="16.62"
-                                        y1="12"
-                                        x2="10.88"
-                                        y2="21.94"></line>
+                                    <path
+                                        d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                                    ></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
                                 </svg>
                             </div>
                             <h3
                                 class="text-xl font-bold text-white mb-6 scramble-target"
                             >
-                                KUVAUS & VIDEO
+                                VERKKOKAUPAT
                             </h3>
                             <p
                                 class="hidden md:block text-white/50 text-sm leading-relaxed"
                             >
-                                Elokuvallista laatua maalta ja ilmasta. Tuotamme
-                                näyttävät videot, drone-kuvaukset sekä potretti-
-                                ja tuotekuvat, jotka nostavat brändisi
-                                ammattimaisuuden uudelle tasolle.
+                                Skaalautuvat kaupparatkaisut. Keskitymme
+                                kassavirran kasvattamiseen poistamalla ostopolun
+                                tekniset esteet.
                             </p>
                             <p
                                 class="md:hidden text-white/50 text-sm leading-relaxed"
                             >
-                                Elokuvallista laatua maalta ja ilmasta.
-                                Mainosvideot, drone-kuvaus ja potretit.
+                                Skaalautuvat kaupparatkaisut. Kassavirran
+                                kasvattaminen.
                             </p>
                         </div>
                         <div
-                            class="font-mono text-[10px] text-signal-blue/50 mt-8"
+                            class="relative z-10 font-mono text-[10px] text-[#0aff68]/50 mt-8"
                         >
-                            PRODUCTION
+                            COMMERCE
                         </div>
                     </div>
 
@@ -393,11 +403,6 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                     >
                         <!-- Background Image -->
                         <div class="absolute inset-0 z-0 pointer-events-none">
-                            <img
-                                src="/3drender.webp"
-                                alt=""
-                                class="w-full h-full object-cover opacity-40 md:opacity-20 group-hover:opacity-40 group-[.mobile-active]:opacity-40 transition-opacity duration-500 grayscale-0 md:grayscale group-hover:grayscale-0 group-[.mobile-active]:grayscale-0"
-                            />
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
                             >
@@ -423,7 +428,7 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
 
                         <div class="relative z-10 pointer-events-none">
                             <div
-                                class="w-10 h-10 border border-signal-blue/30 flex items-center justify-center mb-6 text-signal-blue"
+                                class="w-10 h-10 border border-[#a855f7]/30 flex items-center justify-center mb-6 text-[#a855f7]"
                             >
                                 <svg
                                     width="24"
@@ -435,37 +440,34 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                 >
-                                    <polygon points="12 2 2 7 12 12 22 7 12 2"
-                                    ></polygon>
-                                    <polyline points="2 17 12 22 22 17"
-                                    ></polyline>
-                                    <polyline points="2 12 12 17 22 12"
+                                    <polyline
+                                        points="22 12 18 12 15 21 9 3 6 12 2 12"
                                     ></polyline>
                                 </svg>
                             </div>
                             <h3
                                 class="text-xl font-bold text-white mb-6 scramble-target"
                             >
-                                3D & MOTION
+                                KAMPANJAT & NOPEUS
                             </h3>
                             <p
                                 class="hidden md:block text-white/50 text-sm leading-relaxed"
                             >
-                                Tuotteet ja tilat fotorealistisena
-                                3D-mallinnuksena. Animaatiot, jotka selittävät
-                                monimutkaisenkin asian sekunneissa.
+                                Täsmäaseet markkinointiin. Korkean konversion
+                                laskeutumissivut ja nykyisen sivuston
+                                nopeusoptimointi.
                             </p>
                             <p
                                 class="md:hidden text-white/50 text-sm leading-relaxed"
                             >
-                                Tuotteet ja tilat fotorealistisena
-                                3D-mallinnuksena. Animaatiot ja visualisoinnit.
+                                Täsmäaseet markkinointiin. Laskeutumissivut ja
+                                nopeusoptimointi.
                             </p>
                         </div>
                         <div
-                            class="font-mono text-[10px] text-signal-blue/50 mt-8"
+                            class="relative z-10 font-mono text-[10px] text-[#a855f7]/50 mt-8"
                         >
-                            IMMERSIVE
+                            PERFORMANCE
                         </div>
                     </div>
                 </div>
@@ -516,18 +518,18 @@ import ServicesSlider from "../components/ServicesSlider.jsx";
                         >
                         </div>
                         <img
-                            src="/floating ui design.webp"
-                            alt="Project 1"
+                            src="/double-mirrykoru-mockup.webp"
+                            alt="Mirrykoru Project Mockup"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
                         />
                         <div
                             class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent z-20 translate-y-4 group-hover:translate-y-0 transition-transform"
                         >
                             <h3 class="font-mono text-lg text-white mb-1">
-                                NEON HORIZONS
+                                MIRRYKORU
                             </h3>
                             <p class="text-xs text-signal-blue font-mono">
-                                WEB DESIGN / 3D
+                                WEB DESIGN // BRANDING // COMMERCE
                             </p>
                         </div>
                     </a>

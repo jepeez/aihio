@@ -1,0 +1,677 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Hintalaskuri - AIHIO VISUALS">
+    <main class="relative z-10 pt-32 pb-24 min-h-screen">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1
+                    class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+                >
+                    Verkkosivujen Hintalaskuri
+                </h1>
+                <p
+                    class="text-white/60 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed"
+                >
+                    Määritä tarpeesi ja saat suuntaa-antavan hinta-arvion 30
+                    sekunnissa.
+                </p>
+            </div>
+
+            <!-- Calculator -->
+            <div id="calculator" class="space-y-16">
+                <!-- Step 1: Scope -->
+                <div class="step-container">
+                    <h3
+                        class="text-xl text-white font-mono mb-6 flex items-center gap-3"
+                    >
+                        <span class="text-[#00FFFF]">01.</span> Sivuston laajuus
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <!-- Option A -->
+                        <button
+                            class="calc-card group"
+                            data-type="scope"
+                            data-min="1000"
+                            data-max="2000"
+                            onclick="selectOption('scope', this)"
+                        >
+                            <div class="card-content">
+                                <div class="icon-wrapper text-[#00FFFF]">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <rect
+                                            x="3"
+                                            y="3"
+                                            width="18"
+                                            height="18"
+                                            rx="2"
+                                            ry="2"></rect>
+                                        <line x1="3" y1="9" x2="21" y2="9"
+                                        ></line>
+                                        <line x1="9" y1="21" x2="9" y2="9"
+                                        ></line>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold text-white text-lg mt-4">
+                                    Yksi sivu
+                                </h4>
+                                <p
+                                    class="text-xs text-white/50 mt-2 leading-relaxed"
+                                >
+                                    Tiivis kokonaisuus. Landing page tai
+                                    yksinkertainen käyntikortti.
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+
+                        <!-- Option B -->
+                        <button
+                            class="calc-card group"
+                            data-type="scope"
+                            data-min="2500"
+                            data-max="4500"
+                            onclick="selectOption('scope', this)"
+                        >
+                            <div class="card-content">
+                                <div class="icon-wrapper text-[#00FFFF]">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                                        ></path>
+                                        <polyline points="14 2 14 8 20 8"
+                                        ></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"
+                                        ></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"
+                                        ></line>
+                                        <polyline points="10 9 9 9 8 9"
+                                        ></polyline>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold text-white text-lg mt-4">
+                                    5-10 sivua
+                                </h4>
+                                <p
+                                    class="text-xs text-white/50 mt-2 leading-relaxed"
+                                >
+                                    Laaja yrityssivusto. Palvelut, referenssit
+                                    ja blogi.
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+
+                        <!-- Option C -->
+                        <button
+                            class="calc-card group"
+                            data-type="scope"
+                            data-min="4500"
+                            data-max="8000"
+                            onclick="selectOption('scope', this)"
+                        >
+                            <div class="card-content">
+                                <div class="icon-wrapper text-[#00FFFF]">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path
+                                            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold text-white text-lg mt-4">
+                                    Verkkokauppa
+                                </h4>
+                                <p
+                                    class="text-xs text-white/50 mt-2 leading-relaxed"
+                                >
+                                    Myy tuotteita verkossa. Maksujärjestelmät ja
+                                    tuotehallinta.
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Content -->
+                <div class="step-container">
+                    <h3
+                        class="text-xl text-white font-mono mb-6 flex items-center gap-3"
+                    >
+                        <span class="text-[#00FFFF]">02.</span> Nykyinen tilanne
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- Option A -->
+                        <button
+                            class="calc-card group"
+                            data-type="content"
+                            data-min="0"
+                            data-max="500"
+                            onclick="selectOption('content', this)"
+                        >
+                            <div class="card-content flex items-center gap-4">
+                                <div class="icon-wrapper text-[#00FFFF]">
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path
+                                            d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                                        ></path>
+                                        <polyline points="14 2 14 8 20 8"
+                                        ></polyline>
+                                        <path d="M16 13H8"></path>
+                                        <path d="M16 17H8"></path>
+                                        <path d="M10 9H8"></path>
+                                    </svg>
+                                </div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-white">
+                                        Minulla on jo brändi ja tekstit
+                                    </h4>
+                                    <p class="text-xs text-white/50 mt-1">
+                                        Materiaalit ovat valmiina syötettäväksi.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+
+                        <!-- Option B -->
+                        <button
+                            class="calc-card group"
+                            data-type="content"
+                            data-min="1500"
+                            data-max="3000"
+                            onclick="selectOption('content', this)"
+                        >
+                            <div class="card-content flex items-center gap-4">
+                                <div class="icon-wrapper text-[#00FFFF]">
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M12 19l7-7 3 3-7 7-3-3z"
+                                        ></path>
+                                        <path
+                                            d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"
+                                        ></path>
+                                        <path d="M2 2l7.586 7.586"></path>
+                                        <circle cx="11" cy="11" r="2"></circle>
+                                    </svg>
+                                </div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-white">
+                                        Tarvitsen kaiken alusta asti
+                                    </h4>
+                                    <p class="text-xs text-white/50 mt-1">
+                                        Logo, ilme, tekstit ja kuvitus
+                                        suunnitellaan.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Additional Services -->
+                <div class="step-container">
+                    <h3
+                        class="text-xl text-white font-mono mb-6 flex items-center gap-3"
+                    >
+                        <span class="text-[#00FFFF]">03.</span> Lisäpalvelut & Sisältö
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- Option A: Content & Copy -->
+                        <button
+                            class="calc-card group multi-select"
+                            data-type="feature"
+                            data-min="500"
+                            data-max="1500"
+                            onclick="toggleFeature(this)"
+                        >
+                            <div class="card-content">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold text-white">
+                                        Sisällöntuotanto & Copywriting
+                                    </h4>
+                                    <div class="checkbox-indicator"></div>
+                                </div>
+                                <p class="text-xs text-white/50 mt-2 text-left">
+                                    Ammattimainen tekstisuunnittelu ja
+                                    sisällöntuotanto.
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+
+                        <!-- Option B: Keyword Research -->
+                        <button
+                            class="calc-card group multi-select"
+                            data-type="feature"
+                            data-min="400"
+                            data-max="800"
+                            onclick="toggleFeature(this)"
+                        >
+                            <div class="card-content">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold text-white">
+                                        Laaja avainsanatutkimus
+                                    </h4>
+                                    <div class="checkbox-indicator"></div>
+                                </div>
+                                <p class="text-xs text-white/50 mt-2 text-left">
+                                    Syvällinen analyysi hakutermeistä ja
+                                    kilpailijoista.
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+
+                        <!-- Option C: Multilingual -->
+                        <button
+                            class="calc-card group multi-select"
+                            data-type="feature"
+                            data-min="800"
+                            data-max="1500"
+                            onclick="toggleFeature(this)"
+                        >
+                            <div class="card-content">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold text-white">
+                                        Monikielisyys
+                                    </h4>
+                                    <div class="checkbox-indicator"></div>
+                                </div>
+                                <p class="text-xs text-white/50 mt-2 text-left">
+                                    Sivusto usealla kielellä (esim. FI / EN /
+                                    SV).
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+
+                        <!-- Option D: AI & Integrations -->
+                        <button
+                            class="calc-card group multi-select"
+                            data-type="feature"
+                            data-min="1000"
+                            data-max="2500"
+                            onclick="toggleFeature(this)"
+                        >
+                            <div class="card-content">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold text-white">
+                                        AI / Integraatiot
+                                    </h4>
+                                    <div class="checkbox-indicator"></div>
+                                </div>
+                                <p
+                                    class="text-xs text-white/50 mt-2 text-left feature-icon text-[#00FFFF]"
+                                >
+                                    Chatbotit, CRM-yhteydet tai muut
+                                    järjestelmät.
+                                </p>
+                            </div>
+                            <div class="card-border"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div
+                    class="mt-16 relative p-8 md:p-12 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm text-center overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-black/0 via-[#00FFFF]/5 to-[#39FF14]/5 pointer-events-none"
+                    >
+                    </div>
+
+                    <div class="relative z-10 mb-8">
+                        <p
+                            class="text-white/50 font-mono text-sm mb-4 tracking-widest"
+                        >
+                            ARVIOITU HINTAHAARUKKA
+                        </p>
+                        <div
+                            class="flex items-center justify-center gap-2 md:gap-4"
+                        >
+                            <div
+                                id="price-display"
+                                class="text-3xl md:text-6xl font-bold text-[#39FF14] font-mono tracking-tighter"
+                            >
+                                0 € - 0 €
+                            </div>
+                        </div>
+                        <p
+                            id="price-updating"
+                            class="text-[#00FFFF] text-xs font-mono mt-4 opacity-0 transition-opacity duration-300 h-4"
+                        >
+                            Päivitetään arviota...
+                        </p>
+                    </div>
+
+                    <!-- Contact Inputs -->
+                    <div class="max-w-md mx-auto mb-8 space-y-4 text-left">
+                        <div>
+                            <label
+                                class="block text-xs font-mono text-white/50 mb-1 pl-1"
+                                >NIMI *</label
+                            >
+                            <input
+                                type="text"
+                                id="input-name"
+                                class="w-full bg-black/50 border border-white/10 p-3 text-white rounded text-sm focus:border-[#39FF14] focus:outline-none transition-colors placeholder-white/20"
+                                placeholder="Esim. Matti Meikäläinen"
+                                oninput="clearError()"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-mono text-white/50 mb-1 pl-1"
+                                >SÄHKÖPOSTI *</label
+                            >
+                            <input
+                                type="email"
+                                id="input-email"
+                                class="w-full bg-black/50 border border-white/10 p-3 text-white rounded text-sm focus:border-[#39FF14] focus:outline-none transition-colors placeholder-white/20"
+                                placeholder="Esim. matti@yritys.fi"
+                                oninput="clearError()"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-mono text-white/50 mb-1 pl-1"
+                                >YRITYS *</label
+                            >
+                            <input
+                                type="text"
+                                id="input-company"
+                                class="w-full bg-black/50 border border-white/10 p-3 text-white rounded text-sm focus:border-[#39FF14] focus:outline-none transition-colors placeholder-white/20"
+                                placeholder="Esim. Yritys Oy"
+                                oninput="clearError()"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center">
+                        <a
+                            id="submit-btn"
+                            href="#"
+                            onclick="validateAndSubmit(event)"
+                            class="hologram-btn green group w-full md:w-auto px-8 md:px-12 py-4 text-sm md:text-base"
+                        >
+                            <span data-text="VARAA ILMAINEN KARTOITUS"
+                                >VARAA ILMAINEN KARTOITUS</span
+                            >
+                            <div class="holo-scan-line"></div>
+                            <div class="btn-border-t"></div>
+                            <div class="btn-border-r"></div>
+                            <div class="btn-border-b"></div>
+                            <div class="btn-border-l"></div>
+                        </a>
+                        <p
+                            id="form-error"
+                            class="text-[#FF0055] text-xs font-mono mt-4 opacity-0 transition-opacity duration-300 h-4"
+                        >
+                            TÄYTÄ KAIKKI PAKOLLISET KENTÄT.
+                        </p>
+                    </div>
+                    <p class="text-white/30 text-xs mt-6 max-w-lg mx-auto">
+                        Hinta on suuntaa-antava. Tarkka hinta varmistetaan
+                        kartoituksessa, joka ei sido sinua mihinkään.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .calc-card {
+        @apply relative p-6 bg-black/40 border border-white/10 rounded-lg transition-all duration-300 w-full overflow-hidden hover:bg-white/5 flex flex-col justify-between;
+        min-height: 160px;
+    }
+
+    .calc-card.selected {
+        @apply border-[#00FFFF] bg-[#00FFFF]/5 shadow-[0_0_20px_rgba(0,255,255,0.1)];
+    }
+
+    .calc-card.active-feature {
+        @apply border-[#00FFFF] bg-[#00FFFF]/5 shadow-[0_0_20px_rgba(0,255,255,0.1)];
+    }
+
+    .card-border {
+        @apply absolute inset-0 border border-transparent transition-all duration-300 pointer-events-none;
+    }
+
+    .checkbox-indicator {
+        @apply w-5 h-5 border border-white/30 rounded bg-transparent transition-all duration-300;
+    }
+
+    .calc-card.active-feature .checkbox-indicator {
+        @apply bg-[#00FFFF] border-[#00FFFF] shadow-[0_0_10px_rgba(0,255,255,0.5)];
+    }
+</style>
+
+<script is:inline>
+    // State
+    const state = {
+        scope: { min: 0, max: 0, label: "" },
+        content: { min: 0, max: 0, label: "" },
+        features: [],
+    };
+
+    const priceDisplay = document.getElementById("price-display");
+    const updateIndicator = document.getElementById("price-updating");
+    const submitBtn = document.getElementById("submit-btn");
+    const inputName = document.getElementById("input-name");
+    const inputEmail = document.getElementById("input-email");
+    const inputCompany = document.getElementById("input-company");
+
+    // Helper to format currency
+    const formatCurrency = (num) => {
+        return new Intl.NumberFormat("fi-FI", {
+            style: "currency",
+            currency: "EUR",
+            maximumFractionDigits: 0,
+        }).format(num);
+    };
+
+    const formError = document.getElementById("form-error");
+
+    // Clear Error on Input
+    function clearError() {
+        formError.style.opacity = "0";
+    }
+
+    // Validate and Submit
+    function validateAndSubmit(e) {
+        e.preventDefault();
+
+        const name = inputName.value.trim();
+        const email = inputEmail.value.trim();
+        const company = inputCompany.value.trim();
+
+        // Check if fields are filled
+        if (name.length === 0 || email.length === 0 || company.length === 0) {
+            formError.style.opacity = "1";
+            return;
+        }
+
+        // Generate Mailto URL
+        const mailtoUrl = generateMailtoUrl(name, email, company);
+        window.location.href = mailtoUrl;
+    }
+
+    // Generate Mailto URL
+    function generateMailtoUrl(name, email, company) {
+        let totalMin = 0;
+        let totalMax = 0;
+
+        // Calc totals again for clarity
+        totalMin += state.scope.min || 0;
+        totalMax += state.scope.max || 0;
+        totalMin += state.content.min || 0;
+        totalMax += state.content.max || 0;
+        state.features.forEach((f) => {
+            totalMin += f.min;
+            totalMax += f.max;
+        });
+
+        const featuresList = state.features
+            .map((f) => `- ${f.id}`)
+            .join("%0D%0A");
+
+        const subject = `Tarjouspyyntö Hintalaskurista: ${company}`;
+        const body = `
+HEI!
+
+Tässä alustavat tiedot projektillemme:
+
+ASIAKASTIEDOT
+----------------------------------
+Nimi: ${name}
+Yritys: ${company}
+Sähköposti: ${email}
+
+VALITUT OMINAISUUDET
+----------------------------------
+Sivuston laajuus: ${state.scope.label || "-"}
+Sisältömateriaalit: ${state.content.label || "-"}
+
+LISÄPALVELUT:
+${featuresList || "-"}
+
+----------------------------------
+ALUSTAVA HINTA-ARVIO: ${formatCurrency(totalMin)} - ${formatCurrency(totalMax)}
+----------------------------------
+
+Viesti: (Kirjoita tähän mahdollinen lisäviesti)
+        `.trim();
+
+        return `mailto:info@aihio.fi?subject=${encodeURIComponent(
+            subject,
+        )}&body=${encodeURIComponent(body)}`;
+    }
+
+    // Update Display
+    function updatePrice() {
+        // Show updating state
+        updateIndicator.style.opacity = "1";
+
+        let totalMin = 0;
+        let totalMax = 0;
+
+        // Add scope
+        totalMin += state.scope.min || 0;
+        totalMax += state.scope.max || 0;
+
+        // Add content
+        totalMin += state.content.min || 0;
+        totalMax += state.content.max || 0;
+
+        // Add features
+        state.features.forEach((f) => {
+            totalMin += f.min;
+            totalMax += f.max;
+        });
+
+        // Add slight randomness delay for "calculating" effect
+        setTimeout(() => {
+            if (totalMin === 0 && totalMax === 0) {
+                priceDisplay.innerText = "0 € - 0 €";
+            } else {
+                priceDisplay.innerText = `${formatCurrency(totalMin)} - ${formatCurrency(totalMax)}`;
+            }
+
+            updateIndicator.style.opacity = "0";
+        }, 400);
+    }
+
+    // Selection Logic
+    window.selectOption = (type, element) => {
+        // Remove selected class from siblings
+        const siblings = element.parentElement.children;
+        for (let sib of siblings) {
+            sib.classList.remove("selected");
+        }
+
+        // Add selected to clicked
+        element.classList.add("selected");
+
+        // Update state
+        const min = parseInt(element.dataset.min);
+        const max = parseInt(element.dataset.max);
+
+        // Extract Label (assume h4 is the label)
+        const label = element.querySelector("h4").innerText;
+
+        state[type] = { min, max, label };
+        updatePrice();
+    };
+
+    // Toggle Logic (Features)
+    window.toggleFeature = (element) => {
+        // Unclick others if it wasn't multi-select (but it is)
+        // Check functionality: if clicked, toggle
+
+        element.classList.toggle("active-feature");
+        const isActive = element.classList.contains("active-feature");
+
+        const min = parseInt(element.dataset.min);
+        const max = parseInt(element.dataset.max);
+        const featureId = element.querySelector("h4").innerText; // Use label as ID
+
+        if (isActive) {
+            state.features.push({ id: featureId, min, max });
+        } else {
+            state.features = state.features.filter((f) => f.id !== featureId);
+        }
+        updatePrice();
+    };
+</script>

@@ -148,11 +148,18 @@ import { ClientRouter } from "astro:transitions";
                         >Ota Yhteyttä</a
                     >
                 </div>
-                <div
-                    class="hidden md:block font-mono text-[10px] border border-signal-blue/30 px-2 py-1 text-signal-blue bg-signal-blue/5 rounded"
+                <a
+                    href="/hintalaskuri"
+                    class="hidden md:flex hologram-btn green"
+                    style="padding: 0.5rem 1.5rem; font-size: 0.75rem;"
                 >
-                    AVAILABLE FOR PROJECTS
-                </div>
+                    <span data-text="HINTALASKURI">HINTALASKURI</span>
+                    <div class="holo-scan-line"></div>
+                    <div class="btn-border-t"></div>
+                    <div class="btn-border-r"></div>
+                    <div class="btn-border-b"></div>
+                    <div class="btn-border-l"></div>
+                </a>
 
                 <!-- Mobile Menu Button -->
                 <button
@@ -316,8 +323,8 @@ import { ClientRouter } from "astro:transitions";
                         <p
                             class="font-mono text-xs text-white/40 leading-relaxed"
                         >
-                            Yhdistämme visuaalisen tarinankerronnan ja modernin
-                            teknologian.
+                            Suorituskykyistä web-suunnittelua ja verkkokauppoja
+                            kasvuhakuisille yrityksille.
                         </p>
                     </div>
                     <div class="flex flex-col relative z-10">
@@ -359,17 +366,22 @@ import { ClientRouter } from "astro:transitions";
                             <a
                                 href="/palvelut"
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
-                                >Verkkosivut & Verkkokaupat</a
+                                >Yrityssivustot</a
                             >
                             <a
                                 href="/palvelut"
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
-                                >3D-mallinnus & Renderöinti</a
+                                >Verkkokaupat</a
                             >
                             <a
                                 href="/palvelut"
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
-                                >Videotuotanto & Editointi</a
+                                >Auditointi & Nopeusoptimointi</a
+                            >
+                            <a
+                                href="/hintalaskuri"
+                                class="font-mono text-xs text-signal-green hover:text-white transition-colors uppercase tracking-wider border border-transparent hover:border-signal-green/30 px-3 py-1 w-fit"
+                                >Hintalaskuri</a
                             >
                         </nav>
                     </div>
@@ -377,20 +389,40 @@ import { ClientRouter } from "astro:transitions";
                         <h3
                             class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
                         >
-                            VERKOSSA
+                            YHTEYSTIEDOT
                         </h3>
-                        <nav class="flex flex-col gap-3">
-                            <a
-                                href="#"
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
-                                >Instagram</a
-                            >
-                            <a
-                                href="#"
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
-                                >LinkedIn</a
-                            >
-                        </nav>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-1">
+                                <a
+                                    href="mailto:info@aihiovisuals.fi"
+                                    class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors border border-transparent px-3 py-1 w-fit hover:border-signal-blue/30"
+                                >
+                                    info@aihiovisuals.fi
+                                </a>
+                                <div
+                                    class="font-mono text-xs text-white/60 border border-transparent px-3 py-1 w-fit"
+                                >
+                                    Toimipaikka: Turku, Finland
+                                </div>
+                                <div
+                                    class="font-mono text-xs text-white/60 border border-transparent px-3 py-1 w-fit"
+                                >
+                                    Y-tunnus: 1234567-8
+                                </div>
+                            </div>
+                            <nav class="flex flex-col gap-3">
+                                <a
+                                    href="#"
+                                    class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                    >LinkedIn</a
+                                >
+                                <a
+                                    href="#"
+                                    class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                    >Instagram</a
+                                >
+                            </nav>
+                        </div>
                     </div>
                 </div>
                 <div

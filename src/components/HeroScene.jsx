@@ -6,11 +6,16 @@ import { AV_logo3d } from './AV_logo3d'
 export default function HeroScene() {
     const [isMobile, setIsMobile] = useState(false)
 
+    const [eventSource, setEventSource] = useState(null)
+
     useEffect(() => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768)
         }
         checkMobile()
+        // Set event source to the hero section to ensure correct coordinate mapping
+        setEventSource(document.getElementById('hero'))
+
         window.addEventListener('resize', checkMobile)
         return () => window.removeEventListener('resize', checkMobile)
     }, [])
@@ -21,7 +26,7 @@ export default function HeroScene() {
                 dpr={isMobile ? [1, 1] : [1, 1.5]} // Optimization: Lower DPR on mobile for performance
                 camera={{ position: [0, 0, 8], fov: 45 }}
                 style={{ pointerEvents: 'none' }} // Allow clicks to pass through
-                eventSource={typeof document !== 'undefined' ? document.body : null}
+                eventSource={eventSource || undefined}
                 eventPrefix="client"
                 gl={{ antialias: false, toneMappingExposure: 3.0, powerPreference: "high-performance" }} // Optimization: Turn off AA (DPR handles it), increase brightness
             >

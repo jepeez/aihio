@@ -8,46 +8,54 @@ import 'swiper/css/pagination';
 
 const services = [
     {
-        title: "WEB & BRÄNDI",
-        description: "Modernit verkkosivut ja erottuva yritysilme. Suunnittelemme logot, grafiikat ja responsiiviset sivustot.",
-        module: "VISUAL STORYTELLING",
+        title: "YRITYSSIVUSTOT",
+        description: "Moderni digitaalinen pääkonttori. Rakennamme uskottavuutta herättävät sivustot, jotka on optimoitu keräämään liidejä.",
+        module: "CORPORATE",
         icon: (
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="4 17 10 11 4 5"></polyline>
-                <line x1="12" y1="19" x2="20" y2="19"></line>
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+                <rect x="14" y="13" width="4" height="4"></rect>
             </svg>
         ),
-        image: "/floating-ui-design.webp"
+        image: "/floating-ui-design.webp",
+        colorClass: "text-signal-blue",
+        bgGlow: "bg-signal-blue/20",
+        borderHover: "group-hover:border-signal-blue/50",
+        textGlow: "group-hover:text-signal-blue"
     },
     {
-        title: "KUVAUS & VIDEO",
-        description: "Elokuvallista laatua maalta ja ilmasta. Mainosvideot, drone-kuvaus ja potretit.",
-        module: "CAPTURE",
+        title: "VERKKOKAUPAT",
+        description: "Skaalautuvat kaupparatkaisut. Keskitymme kassavirran kasvattamiseen poistamalla ostopolun tekniset esteet.",
+        module: "COMMERCE",
         icon: (
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
-                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
-                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
-                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
-                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
-                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
         ),
-        image: "/camera-drone.webp"
+        image: "/floating-ui-design.webp",
+        colorClass: "text-[#0aff68]",
+        bgGlow: "bg-[#0aff68]/20",
+        borderHover: "group-hover:border-[#0aff68]/50",
+        textGlow: "group-hover:text-[#0aff68]"
     },
     {
-        title: "3D & MOTION",
-        description: "Tuotteet ja tilat fotorealistisena 3D-mallinnuksena. Animaatiot ja visualisoinnit.",
-        module: "IMMERSIVE",
+        title: "KAMPANJAT & NOPEUS",
+        description: "Täsmäaseet markkinointiin. Korkean konversion laskeutumissivut ja nykyisen sivuston nopeusoptimointi.",
+        module: "PERFORMANCE",
         icon: (
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
         ),
-        image: "/3drender.webp"
+        image: "/3drender.webp",
+        colorClass: "text-[#a855f7]",
+        bgGlow: "bg-[#a855f7]/20",
+        borderHover: "group-hover:border-[#a855f7]/50",
+        textGlow: "group-hover:text-[#a855f7]"
     }
 ];
 
@@ -75,7 +83,7 @@ export default function ServicesSlider() {
           background-position: center;
           background-size: cover;
           width: 300px;
-          height: 420px;
+          height: 450px;
           border-radius: 20px;
         }
         .services-slider .swiper-pagination-bullet {
@@ -107,13 +115,8 @@ export default function ServicesSlider() {
                 {services.map((service, index) => (
                     <SwiperSlide key={index} className="relative group">
                         <div className="absolute inset-0 bg-hw-black/80 backdrop-blur-xl rounded-[20px] border border-white/10 overflow-hidden">
-                            {/* Background Image with Overlay */}
+                            {/* Background Image with Overlay - REMOVED */}
                             <div className="absolute inset-0 z-0">
-                                <img
-                                    src={service.image}
-                                    alt=""
-                                    className="w-full h-full object-cover opacity-30 mix-blend-overlay"
-                                />
                                 <div className="absolute inset-0 bg-gradient-to-b from-hw-black/50 via-hw-black/80 to-hw-black"></div>
                             </div>
 
@@ -121,8 +124,8 @@ export default function ServicesSlider() {
                             <div className="relative z-10 h-full flex flex-col p-8">
                                 {/* Icon with Glow */}
                                 <div className="mb-6 relative">
-                                    <div className="absolute inset-0 bg-signal-blue/20 blur-xl rounded-full transform -translate-y-1/2"></div>
-                                    <div className="text-signal-blue relative z-10">
+                                    <div className={`absolute inset-0 ${service.bgGlow} blur-xl rounded-full transform -translate-y-1/2`}></div>
+                                    <div className={`${service.colorClass} relative z-10`}>
                                         {service.icon}
                                     </div>
                                 </div>
@@ -137,13 +140,13 @@ export default function ServicesSlider() {
                                 </p>
 
                                 {/* Footer / Module Info */}
-                                <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between group-hover:border-signal-blue/30 transition-colors">
+                                <div className={`mt-8 pt-6 border-t border-white/10 flex items-center justify-between transition-colors ${service.borderHover}`}>
                                     <div className="flex flex-col">
                                         <span className="text-[10px] text-white/30 font-mono uppercase tracking-widest">Module</span>
-                                        <span className="text-xs text-signal-blue font-mono tracking-wider">{service.module}</span>
+                                        <span className={`text-xs font-mono tracking-wider ${service.colorClass}`}>{service.module}</span>
                                     </div>
 
-                                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:border-signal-blue/50 group-hover:text-signal-blue transition-all">
+                                    <div className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 transition-all ${service.borderHover} ${service.textGlow}`}>
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                             <path d="M5 12h14M12 5l7 7-7 7" />
                                         </svg>
