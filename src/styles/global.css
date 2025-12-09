@@ -81,7 +81,7 @@
 .menu-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(2, 153, 225, 0.15) 0%, rgba(5, 5, 5, 0.95) 100%);
+  background: radial-gradient(circle at center, rgba(5, 5, 5, 0.95) 0%, rgba(2, 153, 225, 0.15) 100%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;

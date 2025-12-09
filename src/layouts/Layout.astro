@@ -60,11 +60,6 @@ import { ClientRouter } from "astro:transitions";
                 >
                 </div>
             </div>
-            <div
-                class="mt-2 font-mono text-[10px] text-signal-blue/80 tracking-widest"
-            >
-                TURKU, FINLAND
-            </div>
         </div>
 
         <div
@@ -75,11 +70,6 @@ import { ClientRouter } from "astro:transitions";
                     class="absolute -top-[1px] -right-[1px] w-2 h-2 bg-signal-blue"
                 >
                 </div>
-            </div>
-            <div
-                class="mt-2 font-mono text-[10px] text-white/40 tracking-widest"
-            >
-                EST. 2025
             </div>
         </div>
 
@@ -115,7 +105,7 @@ import { ClientRouter } from "astro:transitions";
                 <div class="flex items-center gap-2">
                     <a href="/"
                         ><img
-                            src="/UUSLOGO.png"
+                            src="/AVlogo2.1.png"
                             alt="AIHIO Logo"
                             class="h-10 w-auto"
                         /></a
@@ -261,6 +251,31 @@ import { ClientRouter } from "astro:transitions";
             </div>
         </div>
 
+        <script is:inline>
+            // Prevent FOUC for menu transition
+            try {
+                if (
+                    sessionStorage.getItem("mobile-menu-transition") === "true"
+                ) {
+                    console.log("Inline Script: Transition flag found");
+                    var overlay = document.getElementById(
+                        "mobile-menu-overlay",
+                    );
+                    var bg = overlay ? overlay.querySelector(".menu-bg") : null;
+                    if (overlay) {
+                        overlay.style.visibility = "visible";
+                        overlay.style.transition = "none";
+                    }
+                    if (bg) {
+                        bg.style.opacity = "1";
+                        bg.style.transition = "none";
+                    }
+                }
+            } catch (e) {
+                console.error("Inline Script Error:", e);
+            }
+        </script>
+
         <slot />
 
         <!-- Footer -->
@@ -312,7 +327,7 @@ import { ClientRouter } from "astro:transitions";
                     <div class="flex flex-col relative z-10">
                         <a href="/" class="mb-6"
                             ><img
-                                src="/UUSLOGO.png"
+                                src="/AVlogo2.1.png"
                                 alt="AIHIO Logo"
                                 class="h-12 w-auto"
                             /></a
@@ -480,6 +495,20 @@ import { ClientRouter } from "astro:transitions";
                     "mobile-menu-overlay",
                 );
 
+                // Add click listeners to links to trigger transition
+                const links = document.querySelectorAll(
+                    "#mobile-menu-content a",
+                );
+                links.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        console.log("Link clicked, setting transition flag");
+                        sessionStorage.setItem(
+                            "mobile-menu-transition",
+                            "true",
+                        );
+                    });
+                });
+
                 if (menuBtn && mobileMenuOverlay) {
                     menuBtn.addEventListener("click", () => {
                         isMenuOpen = !isMenuOpen;
@@ -502,6 +531,7 @@ import { ClientRouter } from "astro:transitions";
             };
 
             // Grid Animation Globals
+            let startMenuCloseAnimation = false;
             let canvasStatic,
                 ctxStatic,
                 canvasActive,
@@ -760,6 +790,54 @@ import { ClientRouter } from "astro:transitions";
                 cachedActiveHexes = [];
                 cachedClosestHex = null;
                 lastMouse = { x: -1000, y: -1000 };
+
+                // Handle forced start animation state
+                // Handle forced start animation state
+                if (startMenuCloseAnimation) {
+                    console.log(
+                        "Resize: initializing close animation state. Hexagons:",
+                        hexagons.length,
+                    );
+
+                    if (hexagons.length > 0) {
+                        updateMenuOrder();
+                        menuAnimationProgress = hexagons.length;
+                        isMenuOpen = false;
+
+                        const overlay = document.getElementById(
+                            "mobile-menu-overlay",
+                        );
+                        const bg = overlay
+                            ? overlay.querySelector(".menu-bg")
+                            : null;
+
+                        if (bg instanceof HTMLElement) {
+                            // Restore transition but OVERRIDE delay to 0s to avoid black screen hang
+                            bg.style.transition = "opacity 0.5s ease 0s";
+                            // Force reflow
+                            void bg.offsetWidth;
+                            // Fade out
+                            bg.style.opacity = "0";
+                        }
+                        if (overlay) {
+                            // We don't need to touch overlay transition as visibility handles itself
+                            overlay.style.transition = "";
+                        }
+                        startMenuCloseAnimation = false;
+                    } else {
+                        console.warn(
+                            "Resize: Hexagons empty during forced animation start! Retrying in 100ms",
+                        );
+                        setTimeout(() => {
+                            if (hexagons.length > 0) {
+                                startMenuCloseAnimation = true;
+                                resize();
+                            }
+                        }, 100);
+                        // Don't set false yet, let retry handle it
+                        startMenuCloseAnimation = false;
+                    }
+                }
             }
 
             function animate(currentTime) {
@@ -945,6 +1023,17 @@ import { ClientRouter } from "astro:transitions";
                                 menuAnimationProgress - speed,
                                 0,
                             );
+                        } else {
+                            // Clean up overlay visibility if it was forced
+                            const overlay = document.getElementById(
+                                "mobile-menu-overlay",
+                            );
+                            if (
+                                overlay &&
+                                overlay.style.visibility === "visible"
+                            ) {
+                                overlay.style.visibility = "";
+                            }
                         }
                     }
 
@@ -1115,6 +1204,20 @@ import { ClientRouter } from "astro:transitions";
 
             // Lifecycle Management
             const init = () => {
+                console.log("Init called");
+                if (
+                    sessionStorage.getItem("mobile-menu-transition") === "true"
+                ) {
+                    console.log(
+                        "Init: transition flag found, starting close animation",
+                    );
+                    startMenuCloseAnimation = true;
+                    sessionStorage.removeItem("mobile-menu-transition");
+                } else {
+                    console.log("Init: no transition flag");
+                    startMenuCloseAnimation = false;
+                }
+
                 initScramble();
                 initMagnetic();
                 initMobileMenu();

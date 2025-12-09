@@ -28,15 +28,15 @@ export default function HeroScene() {
                 style={{ pointerEvents: 'none' }} // Allow clicks to pass through
                 eventSource={eventSource || undefined}
                 eventPrefix="client"
-                gl={{ antialias: false, toneMappingExposure: 3.0, powerPreference: "high-performance" }} // Optimization: Turn off AA (DPR handles it), increase brightness
+                gl={{ antialias: false, toneMappingExposure: 1.0, powerPreference: "high-performance" }} // Optimization: Turn off AA (DPR handles it), increase brightness
             >
                 <Suspense fallback={null}>
                     <Environment preset="warehouse" environmentIntensity={0.5} />
 
                     {/* Lighting Setup */}
-                    <ambientLight intensity={2.0} />
-                    <directionalLight position={[5, 5, 5]} intensity={4.0} color="#ffffff" />
-                    <spotLight position={[-5, 5, 5]} intensity={2.0} angle={0.5} penumbra={1} />
+                    <ambientLight intensity={0.5} />
+                    <directionalLight position={[5, 5, 5]} intensity={1.5} color="#ffffff" />
+                    <spotLight position={[-5, 5, 5]} intensity={1.0} angle={0.5} penumbra={1} />
 
                     {/* 
             Float wrapper for the idle bobbing animation.
@@ -48,9 +48,9 @@ export default function HeroScene() {
                         floatIntensity={isMobile ? 0.0 : 0.1} // Up/down float intensity
                     >
                         <AV_logo3d
-                            scale={isMobile ? 0.2 : 0.35}
-                            position={isMobile ? [0, 2.3, 0] : [2.2, 0.2, 0]}
-                            rotation={[0.3, -3.4, -0.2]}
+                            scale={isMobile ? 0.4 : 0.65}
+                            position={isMobile ? [0, 2.1, 0] : [2.2, 0.2, 0]}
+                            rotation={[0, -2, 0]}
                             isMobile={isMobile}
                         />
                     </Float>
