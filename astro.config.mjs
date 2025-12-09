@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://jepeez.github.io',
-    base: process.env.NODE_ENV === 'production' ? '/aihio' : '/',
+    base: '/',
     integrations: [react(), tailwind()],
     compressHTML: true,
     prefetch: true,
