@@ -755,7 +755,7 @@ const base = import.meta.env.BASE_URL;
                 ctxStatic.clearRect(0, 0, width, height);
                 ctxStatic.lineWidth = 1;
 
-                const opacity = isMobile ? 0.07 : 0.03;
+                const opacity = isMobile ? 0.15 : 0.08;
                 hexagons.forEach((hex) => {
                     hex.draw(ctxStatic, `rgba(255, 255, 255, ${opacity})`);
                 });
@@ -861,14 +861,7 @@ const base = import.meta.env.BASE_URL;
 
                 // Input Intensity Logic
                 if (isMobile) {
-                    if (isTouching) {
-                        inputIntensity = 1;
-                    } else {
-                        inputIntensity = Math.max(
-                            0,
-                            inputIntensity - deltaTime / 500,
-                        );
-                    }
+                    inputIntensity = 0; // Disable continuous glow on mobile
                 } else {
                     inputIntensity = 1;
                 }
@@ -1149,8 +1142,9 @@ const base = import.meta.env.BASE_URL;
             window.addEventListener(
                 "touchmove",
                 (e) => {
-                    mouse.x = e.touches[0].clientX;
-                    mouse.y = e.touches[0].clientY;
+                    // Disabled trailing light on mobile
+                    // mouse.x = e.touches[0].clientX;
+                    // mouse.y = e.touches[0].clientY;
                 },
                 { passive: true },
             );

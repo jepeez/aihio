@@ -473,8 +473,14 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
     .calc-card {
-        @apply relative p-4 md:p-6 bg-black/80 md:bg-black/40 border border-white/10 rounded-lg transition-all duration-300 w-full overflow-hidden hover:bg-white/5 flex flex-col justify-between;
+        @apply relative p-4 md:p-6 bg-black/80 md:bg-black/40 border border-white/20 rounded-lg transition-all duration-300 w-full overflow-hidden flex flex-col justify-between;
         min-height: 120px;
+    }
+
+    @media (hover: hover) {
+        .calc-card:hover {
+            @apply bg-white/5;
+        }
     }
 
     @media (min-width: 768px) {

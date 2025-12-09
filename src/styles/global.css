@@ -18,7 +18,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-signal-blue/20 rounded-full hover:bg-signal-blue/40 transition-colors;
+  @apply bg-signal-blue/20 rounded-full transition-colors;
+}
+
+@media (hover: hover) {
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-signal-blue/40;
+  }
 }
 
 /* Selection */
@@ -148,7 +154,19 @@
   transition-delay: 0.7s;
 }
 
-.cyber-link:hover,
+@media (hover: hover) {
+  .cyber-link:hover {
+    background: rgba(2, 153, 225, 0.15);
+    border-color: #0299e1;
+    box-shadow: 0 0 20px rgba(2, 153, 225, 0.2);
+    padding-left: 2rem;
+  }
+
+  .cyber-link:hover .cyber-icon {
+    opacity: 1;
+  }
+}
+
 .cyber-link.active {
   background: rgba(2, 153, 225, 0.15);
   border-color: #0299e1;
@@ -213,9 +231,7 @@
   will-change: transform;
 }
 
-.cyber-link:hover .cyber-icon {
-  opacity: 1;
-}
+/* Removed redundant hover block here as it is handled above */
 
 /* Hamburger Menu Animation */
 .hamburger-line {
@@ -254,11 +270,31 @@
   text-decoration: none;
 }
 
-.hologram-btn:hover {
-  background: rgba(2, 153, 225, 0.15);
-  border-color: #0299e1;
-  box-shadow: 0 0 30px rgba(2, 153, 225, 0.4);
-  text-shadow: 0 0 8px rgba(2, 153, 225, 0.8);
+@media (hover: hover) {
+  .hologram-btn:hover {
+    background: rgba(2, 153, 225, 0.15);
+    border-color: #0299e1;
+    box-shadow: 0 0 30px rgba(2, 153, 225, 0.4);
+    text-shadow: 0 0 8px rgba(2, 153, 225, 0.8);
+  }
+
+  .hologram-btn:hover::before {
+    opacity: 0.8;
+    filter: blur(6px);
+    transform: scale(1.2);
+  }
+
+  .hologram-btn:hover .holo-scan-line {
+    left: 100%;
+    transition: left 0.5s ease;
+  }
+
+  .hologram-btn:hover .btn-border-t,
+  .hologram-btn:hover .btn-border-r,
+  .hologram-btn:hover .btn-border-b,
+  .hologram-btn:hover .btn-border-l {
+    opacity: 1;
+  }
 }
 
 .hologram-btn span {
@@ -283,11 +319,7 @@
   transition: all 0.3s ease;
 }
 
-.hologram-btn:hover::before {
-  opacity: 0.8;
-  filter: blur(6px);
-  transform: scale(1.2);
-}
+/* Handled in media query above */
 
 .holo-scan-line {
   position: absolute;
@@ -303,10 +335,7 @@
   transition: left 0.5s ease;
 }
 
-.hologram-btn:hover .holo-scan-line {
-  left: 100%;
-  transition: left 0.5s ease;
-}
+/* Handled in media query above */
 
 /* Glass Panel Utility */
 .glass-panel {
@@ -330,11 +359,13 @@
   color: #0aff68;
 }
 
-.hologram-btn.green:hover {
-  background: rgba(10, 255, 104, 0.15);
-  border-color: #0aff68;
-  box-shadow: 0 0 30px rgba(10, 255, 104, 0.4);
-  text-shadow: 0 0 8px rgba(10, 255, 104, 0.8);
+@media (hover: hover) {
+  .hologram-btn.green:hover {
+    background: rgba(10, 255, 104, 0.15);
+    border-color: #0aff68;
+    box-shadow: 0 0 30px rgba(10, 255, 104, 0.4);
+    text-shadow: 0 0 8px rgba(10, 255, 104, 0.8);
+  }
 }
 
 .hologram-btn.green .holo-scan-line {
@@ -385,12 +416,7 @@
   opacity: 0;
 }
 
-.hologram-btn:hover .btn-border-t,
-.hologram-btn:hover .btn-border-r,
-.hologram-btn:hover .btn-border-b,
-.hologram-btn:hover .btn-border-l {
-  opacity: 1;
-}
+/* Handled in media query above */
 
 .btn-border-t {
   top: 0;
