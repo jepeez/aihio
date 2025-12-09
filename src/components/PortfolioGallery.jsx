@@ -204,7 +204,7 @@ const TiltCard = ({ project, onClick }) => {
                     </h3>
                     <div className="flex items-center gap-2">
                         <span className="w-2 h-2 bg-signal-blue rounded-full animate-pulse"></span>
-                        <p className="font-sans text-sm text-white/80">
+                        <p className="font-sans text-base text-white/80">
                             {project.category}
                         </p>
                     </div>
@@ -213,7 +213,7 @@ const TiltCard = ({ project, onClick }) => {
 
             {/* Floating Tag */}
             <div className="absolute top-6 right-6 tilt-floating z-20">
-                <div className="font-mono text-[10px] text-signal-blue border border-signal-blue/30 px-2 py-1 bg-black/40 backdrop-blur-sm">
+                <div className="font-mono text-sm text-signal-blue border border-signal-blue/30 px-2 py-1 bg-black/40 backdrop-blur-sm">
                     {project.tag}
                 </div>
             </div>
@@ -264,7 +264,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                             {/* Close Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-6 right-6 z-50 p-2 bg-black/50 backdrop-blur-md rounded-full text-white/70 hover:text-white hover:bg-black/80 transition-all border border-white/10 group"
+                                className="absolute top-6 right-6 z-50 w-12 h-12 flex items-center justify-center bg-black/80 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all border border-white/20 hover:border-white shadow-lg group"
                             >
                                 <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -290,9 +290,10 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.2 }}
                                     >
-                                        <div className="flex flex-wrap items-center gap-4 mb-4">
+                                        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">{project.title}</h2>
+                                        <div className="flex flex-wrap items-center gap-4 mb-2">
                                             <div className="inline-block px-3 py-1 border border-signal-blue/30 bg-signal-blue/10 rounded-full">
-                                                <p className="text-signal-blue font-mono text-xs tracking-wider">{project.category}</p>
+                                                <p className="text-signal-blue font-mono text-sm tracking-wider">{project.category}</p>
                                             </div>
                                             {project.url && (
                                                 <a
@@ -308,7 +309,6 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                                 </a>
                                             )}
                                         </div>
-                                        <h2 className="text-4xl md:text-6xl font-black text-white mb-2 tracking-tight">{project.title}</h2>
                                     </motion.div>
                                 </div>
                             </div>
@@ -329,8 +329,8 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                         <section className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-white/5">
                                             {content.context.items.map((item, idx) => (
                                                 <div key={idx} className="col-span-1">
-                                                    <h4 className="text-signal-blue text-xs font-mono uppercase tracking-wider mb-2 opacity-80">{item.label}</h4>
-                                                    <p className="text-white font-medium text-sm leading-snug">{item.value}</p>
+                                                    <h4 className="text-signal-blue text-sm font-mono uppercase tracking-wider mb-2 opacity-80">{item.label}</h4>
+                                                    <p className="text-white font-medium text-base leading-snug">{item.value}</p>
                                                 </div>
                                             ))}
                                         </section>
@@ -358,11 +358,11 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                                             <h4 className="text-white font-bold mb-2 text-lg">
                                                                 {feature.name.split(':')[1].trim()}
                                                             </h4>
-                                                            <p className="text-gray-400 text-sm leading-relaxed mb-2">
-                                                                <span className="text-signal-blue uppercase text-xs font-bold tracking-wide">Mitä tein:</span> {feature.what}
+                                                            <p className="text-gray-400 text-base leading-relaxed mb-2">
+                                                                <span className="text-signal-blue uppercase text-sm font-bold tracking-wide">Mitä tein:</span> {feature.what}
                                                             </p>
-                                                            <p className="text-gray-400 text-sm leading-relaxed">
-                                                                <span className="text-signal-blue uppercase text-xs font-bold tracking-wide">Miksi:</span> {feature.why}
+                                                            <p className="text-gray-400 text-base leading-relaxed">
+                                                                <span className="text-signal-blue uppercase text-sm font-bold tracking-wide">Miksi:</span> {feature.why}
                                                             </p>
                                                         </div>
                                                     ))}

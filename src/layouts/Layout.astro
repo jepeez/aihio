@@ -108,7 +108,7 @@ const base = import.meta.env.BASE_URL;
                         ><img
                             src={`${base}AVlogo2.1.png`}
                             alt="AIHIO Logo"
-                            class="h-10 w-auto"
+                            class="h-14 md:h-10 w-auto"
                         /></a
                     >
                 </div>
@@ -287,6 +287,7 @@ const base = import.meta.env.BASE_URL;
                 <div
                     class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 relative"
                 >
+                    <!-- Scan Lines Background -->
                     <div
                         class="hidden md:block absolute inset-0 pointer-events-none"
                     >
@@ -325,85 +326,93 @@ const base = import.meta.env.BASE_URL;
                             </div>
                         </div>
                     </div>
+
+                    <!-- Column 1: Brand -->
                     <div class="flex flex-col relative z-10">
-                        <a href={base} class="mb-6"
-                            ><img
+                        <a href={base} class="mb-6">
+                            <img
                                 src={`${base}AVlogo2.1.png`}
                                 alt="AIHIO Logo"
-                                class="h-12 w-auto"
-                            /></a
-                        >
+                                class="h-16 md:h-12 w-auto"
+                            />
+                        </a>
                         <p class="font-mono text-sm text-white mb-2">
                             LUOVA DIGITOIMISTO
                         </p>
                         <p
-                            class="font-mono text-xs text-white/40 leading-relaxed"
+                            class="font-mono text-sm text-white/40 leading-relaxed"
                         >
                             Suorituskykyistä web-suunnittelua ja verkkokauppoja
                             kasvuhakuisille yrityksille.
                         </p>
                     </div>
+
+                    <!-- Column 2: Navigation -->
                     <div class="flex flex-col relative z-10">
                         <h3
-                            class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
+                            class="font-mono text-sm text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
                         >
                             AIHIO
                         </h3>
                         <nav class="flex flex-col gap-3">
                             <a
                                 href={base}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Etusivu</a
                             >
                             <a
                                 href={`${base}portfolio`}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Portfolio</a
                             >
                             <a
                                 href={`${base}tarina`}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Tietoa meistä</a
                             >
                             <a
                                 href={`${base}yhteystiedot`}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Ota yhteyttä</a
                             >
                         </nav>
                     </div>
+
+                    <!-- Column 3: Services -->
                     <div class="flex flex-col relative z-10">
                         <h3
-                            class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
+                            class="font-mono text-sm text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
                         >
                             PALVELUT
                         </h3>
                         <nav class="flex flex-col gap-3">
                             <a
                                 href={`${base}palvelut`}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Yrityssivustot</a
                             >
                             <a
                                 href={`${base}palvelut`}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Verkkokaupat</a
                             >
                             <a
                                 href={`${base}palvelut`}
-                                class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Auditointi & Nopeusoptimointi</a
                             >
                             <a
                                 href={`${base}hintalaskuri`}
-                                class="font-mono text-xs text-signal-green hover:text-white transition-colors uppercase tracking-wider border border-transparent hover:border-signal-green/30 px-3 py-1 w-fit"
+                                class="font-mono text-sm text-signal-green hover:text-white transition-colors uppercase tracking-wider border border-transparent hover:border-signal-green/30 px-3 py-1 w-fit"
                                 >Hintalaskuri</a
                             >
                         </nav>
                     </div>
+
+                    <!-- Column 4: Contact -->
                     <div class="flex flex-col relative z-10">
                         <h3
-                            class="font-mono text-xs text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
+                            class="font-mono text-sm text-signal-blue mb-6 tracking-widest border border-signal-blue/30 px-3 py-1 inline-block w-fit"
                         >
                             YHTEYSTIEDOT
                         </h3>
@@ -411,17 +420,16 @@ const base = import.meta.env.BASE_URL;
                             <div class="flex flex-col gap-1">
                                 <a
                                     href="mailto:info@aihiovisuals.fi"
-                                    class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors border border-transparent px-3 py-1 w-fit hover:border-signal-blue/30"
+                                    class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors border border-transparent px-3 py-1 w-fit hover:border-signal-blue/30"
+                                    >info@aihiovisuals.fi</a
                                 >
-                                    info@aihiovisuals.fi
-                                </a>
                                 <div
-                                    class="font-mono text-xs text-white/60 border border-transparent px-3 py-1 w-fit"
+                                    class="font-mono text-sm text-white/60 border border-transparent px-3 py-1 w-fit"
                                 >
                                     Toimipaikka: Turku, Finland
                                 </div>
                                 <div
-                                    class="font-mono text-xs text-white/60 border border-transparent px-3 py-1 w-fit"
+                                    class="font-mono text-sm text-white/60 border border-transparent px-3 py-1 w-fit"
                                 >
                                     Y-tunnus: 1234567-8
                                 </div>
@@ -429,26 +437,28 @@ const base = import.meta.env.BASE_URL;
                             <nav class="flex flex-col gap-3">
                                 <a
                                     href="#"
-                                    class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                    class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                     >LinkedIn</a
                                 >
                                 <a
                                     href="#"
-                                    class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
+                                    class="font-mono text-sm text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                     >Instagram</a
                                 >
                             </nav>
                         </div>
                     </div>
                 </div>
+
+                <!-- Footer Bottom -->
                 <div
                     class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
                 >
-                    <div class="font-mono text-xs text-white/40">
+                    <div class="font-mono text-sm text-white/40">
                         &copy; 2025 Aihio Visuals. Kaikki oikeudet pidätetään.
                     </div>
                     <div
-                        class="font-mono text-xs text-white/40 flex items-center gap-2"
+                        class="font-mono text-sm text-white/40 flex items-center gap-2"
                     >
                         <span
                             class="w-2 h-2 bg-signal-blue rounded-full animate-pulse"

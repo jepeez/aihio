@@ -135,15 +135,15 @@ export default function ServicesSlider() {
                                     {service.title}
                                 </h3>
 
-                                <p className="text-white/60 text-sm leading-relaxed mb-auto">
+                                <p className="text-white/60 text-base leading-relaxed mb-auto">
                                     {service.description}
                                 </p>
 
                                 {/* Footer / Module Info */}
                                 <div className={`mt-8 pt-6 border-t border-white/10 flex items-center justify-between transition-colors ${service.borderHover}`}>
                                     <div className="flex flex-col">
-                                        <span className="text-[10px] text-white/30 font-mono uppercase tracking-widest">Module</span>
-                                        <span className={`text-xs font-mono tracking-wider ${service.colorClass}`}>{service.module}</span>
+                                        <span className="text-sm text-white/30 font-mono uppercase tracking-widest">Module</span>
+                                        <span className={`text-sm font-mono tracking-wider ${service.colorClass}`}>{service.module}</span>
                                     </div>
 
                                     <div className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 transition-all ${service.borderHover} ${service.textGlow}`}>
