@@ -34,7 +34,7 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build -- --base /aihio
+        run: npm run build -- --base /aihio/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
