@@ -114,7 +114,7 @@ export default function ServicesSlider() {
             >
                 {services.map((service, index) => (
                     <SwiperSlide key={index} className="relative group">
-                        <div className="absolute inset-0 bg-hw-black/80 backdrop-blur-xl rounded-[20px] border border-white/10 overflow-hidden">
+                        <div className="absolute inset-0 bg-hw-black/80 backdrop-blur-xl rounded-[20px] border border-white/50 overflow-hidden">
                             {/* Background Image with Overlay - REMOVED */}
                             <div className="absolute inset-0 z-0">
                                 <div className="absolute inset-0 bg-gradient-to-b from-hw-black/50 via-hw-black/80 to-hw-black"></div>

@@ -755,7 +755,7 @@ const base = import.meta.env.BASE_URL;
                 ctxStatic.clearRect(0, 0, width, height);
                 ctxStatic.lineWidth = 1;
 
-                const opacity = isMobile ? 0.15 : 0.08;
+                const opacity = isMobile ? 0.07 : 0.03;
                 hexagons.forEach((hex) => {
                     hex.draw(ctxStatic, `rgba(255, 255, 255, ${opacity})`);
                 });
