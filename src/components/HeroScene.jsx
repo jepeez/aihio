@@ -23,12 +23,12 @@ export default function HeroScene() {
     return (
         <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1, pointerEvents: 'none' }}>
             <Canvas
-                dpr={isMobile ? [1, 1] : [1, 1.5]} // Optimization: Lower DPR on mobile for performance
+                dpr={[1, 2]} // Allow retina resolution up to 2x
                 camera={{ position: [0, 0, 8], fov: 45 }}
                 style={{ pointerEvents: 'none' }} // Allow clicks to pass through
                 eventSource={eventSource || undefined}
                 eventPrefix="client"
-                gl={{ antialias: false, toneMappingExposure: 1.0, powerPreference: "high-performance" }} // Optimization: Turn off AA (DPR handles it), increase brightness
+                gl={{ antialias: true, toneMappingExposure: 1.0, powerPreference: "high-performance" }}
             >
                 <Suspense fallback={null}>
                     <Environment preset="warehouse" environmentIntensity={0.5} />
@@ -49,7 +49,7 @@ export default function HeroScene() {
                     >
                         <AV_logo3d
                             scale={isMobile ? 0.4 : 0.65}
-                            position={isMobile ? [0, 2.1, 0] : [2.2, 0.2, 0]}
+                            position={isMobile ? [0, 2.2, 0] : [2.2, 0.2, 0]}
                             rotation={[0, -2, 0]}
                             isMobile={isMobile}
                         />

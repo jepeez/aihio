@@ -473,13 +473,13 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
     .calc-card {
-        @apply relative p-4 md:p-6 bg-black/80 md:bg-black/40 border border-white/50 rounded-lg transition-all duration-300 w-full overflow-hidden flex flex-col justify-between;
+        @apply relative p-4 md:p-6 bg-black/90 border border-white/50 rounded-lg transition-all duration-300 w-full overflow-hidden flex flex-col justify-between;
         min-height: 120px;
     }
 
     @media (hover: hover) {
         .calc-card:hover {
-            @apply bg-white/5;
+            @apply bg-black/100 border-white/70;
         }
     }
 
@@ -490,11 +490,11 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .calc-card.selected {
-        @apply border-[#00FFFF] bg-black/90 md:bg-[#00FFFF]/5 shadow-[0_0_20px_rgba(0,255,255,0.1)];
+        @apply border-[#00FFFF] bg-black/100 shadow-[0_0_20px_rgba(0,255,255,0.1)];
     }
 
     .calc-card.active-feature {
-        @apply border-[#00FFFF] bg-black/90 md:bg-[#00FFFF]/5 shadow-[0_0_20px_rgba(0,255,255,0.1)];
+        @apply border-[#00FFFF] bg-black/100 shadow-[0_0_20px_rgba(0,255,255,0.1)];
     }
 
     .card-border {
