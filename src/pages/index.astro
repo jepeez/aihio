@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import HeroScene from "../components/HeroScene.jsx";
 import ServicesSlider from "../components/ServicesSlider.jsx";
 import WireframeIcon from "../components/WireframeIcon.jsx";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="AIHIO VISUALS // DIGITAL AGENCY">
@@ -46,7 +48,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
                     <div class="mt-8">
                         <div class="flex flex-wrap gap-4">
                             <a
-                                href="/hintalaskuri"
+                                href={`${base}hintalaskuri`}
                                 class="hologram-btn green group w-full md:w-auto md:px-12"
                             >
                                 <span data-text="LASKE HINTA NYT"
@@ -490,7 +492,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
                         <span class="scramble-target">PORTFOLIO</span>
                     </h2>
                     <a
-                        href="/portfolio"
+                        href={`${base}portfolio`}
                         class="hidden md:flex items-center gap-2 font-mono text-xs text-signal-blue hover:text-white transition-colors group"
                     >
                         KATSO KAIKKI
@@ -510,7 +512,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- Project 1 -->
                     <a
-                        href="/portfolio"
+                        href={`${base}portfolio`}
                         class="group relative block aspect-video overflow-hidden border border-white/10 bg-white/5"
                     >
                         <div
@@ -518,7 +520,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
                         >
                         </div>
                         <img
-                            src="/mirrymockup.webp"
+                            src={`${base}mirrymockup.webp`}
                             alt="Mirrykoru Project Mockup"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
                         />
@@ -536,7 +538,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
 
                     <!-- Project 2 -->
                     <a
-                        href="/portfolio"
+                        href={`${base}portfolio`}
                         class="group relative block aspect-video overflow-hidden border border-white/10 bg-white/5"
                     >
                         <div
@@ -544,7 +546,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
                         >
                         </div>
                         <img
-                            src="/owleyemockup.webp"
+                            src={`${base}owleyemockup.webp`}
                             alt="OWLEYE Project Mockup"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
                         />
@@ -563,7 +565,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
 
                 <div class="mt-8 md:hidden flex justify-center">
                     <a
-                        href="/portfolio"
+                        href={`${base}portfolio`}
                         class="hologram-btn green group w-full"
                     >
                         <span data-text="KATSO KAIKKI">KATSO KAIKKI</span>
@@ -607,7 +609,7 @@ import WireframeIcon from "../components/WireframeIcon.jsx";
 
                 <div class="flex justify-center relative z-20">
                     <a
-                        href="/yhteystiedot"
+                        href={`${base}yhteystiedot`}
                         class="hologram-btn green group w-full md:w-auto px-12 py-4 text-lg"
                         data-text="PYYDÄ TARJOUS"
                     >

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="AIHIO VISUALS // TARINA">
@@ -41,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
                 class="relative h-[400px] rounded-lg overflow-hidden border border-white/10 group mt-12"
             >
                 <img
-                    src="/meista.webp"
+                    src={`${base}meista.webp`}
                     alt="Aihio Visuals Team"
                     class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale group-hover:grayscale-0"
                 />

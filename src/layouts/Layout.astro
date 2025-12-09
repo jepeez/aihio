@@ -7,6 +7,7 @@ const { title } = Astro.props;
 import "../styles/global.css";
 import { TransitionManager } from "../components/TransitionManager.jsx";
 import { ClientRouter } from "astro:transitions";
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -18,7 +19,7 @@ import { ClientRouter } from "astro:transitions";
             content="Aihio Visuals - Premium Digital Architect"
         />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <ClientRouter />
@@ -103,9 +104,9 @@ import { ClientRouter } from "astro:transitions";
                 class="container mx-auto px-6 h-16 flex items-center justify-between"
             >
                 <div class="flex items-center gap-2">
-                    <a href="/"
+                    <a href={base}
                         ><img
-                            src="/AVlogo2.1.png"
+                            src={`${base}AVlogo2.1.png`}
                             alt="AIHIO Logo"
                             class="h-10 w-auto"
                         /></a
@@ -113,33 +114,33 @@ import { ClientRouter } from "astro:transitions";
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a
-                        href="/"
+                        href={base}
                         class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
                         >Etusivu</a
                     >
                     <a
-                        href="/palvelut"
+                        href={`${base}palvelut`}
                         class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
                         >Palvelut</a
                     >
                     <a
-                        href="/portfolio"
+                        href={`${base}portfolio`}
                         class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
                         >Portfolio</a
                     >
                     <a
-                        href="/tarina"
+                        href={`${base}tarina`}
                         class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
                         >Meistä</a
                     >
                     <a
-                        href="/yhteystiedot"
+                        href={`${base}yhteystiedot`}
                         class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider"
                         >Ota Yhteyttä</a
                     >
                 </div>
                 <a
-                    href="/hintalaskuri"
+                    href={`${base}hintalaskuri`}
                     class="hidden md:flex hologram-btn green"
                     style="padding: 0.5rem 1.5rem; font-size: 0.75rem;"
                 >
@@ -182,22 +183,22 @@ import { ClientRouter } from "astro:transitions";
                     class="flex flex-col gap-4 w-full max-w-xs px-6 pointer-events-auto justify-center items-center h-full"
                 >
                     <a
-                        href="/"
+                        href={base}
                         class:list={[
                             "cyber-link",
-                            { active: Astro.url.pathname === "/" },
+                            { active: Astro.url.pathname === base },
                         ]}
                     >
                         <span class="cyber-text">ETUSIVU</span>
                         <span class="cyber-icon">=</span>
                     </a>
                     <a
-                        href="/palvelut"
+                        href={`${base}palvelut`}
                         class:list={[
                             "cyber-link",
                             {
                                 active: Astro.url.pathname.startsWith(
-                                    "/palvelut",
+                                    `${base}palvelut`,
                                 ),
                             },
                         ]}
@@ -206,12 +207,12 @@ import { ClientRouter } from "astro:transitions";
                         <span class="cyber-icon">=</span>
                     </a>
                     <a
-                        href="/portfolio"
+                        href={`${base}portfolio`}
                         class:list={[
                             "cyber-link",
                             {
                                 active: Astro.url.pathname.startsWith(
-                                    "/portfolio",
+                                    `${base}portfolio`,
                                 ),
                             },
                         ]}
@@ -220,12 +221,12 @@ import { ClientRouter } from "astro:transitions";
                         <span class="cyber-icon">=</span>
                     </a>
                     <a
-                        href="/tarina"
+                        href={`${base}tarina`}
                         class:list={[
                             "cyber-link",
                             {
                                 active: Astro.url.pathname.startsWith(
-                                    "/tarina",
+                                    `${base}tarina`,
                                 ),
                             },
                         ]}
@@ -234,12 +235,12 @@ import { ClientRouter } from "astro:transitions";
                         <span class="cyber-icon">=</span>
                     </a>
                     <a
-                        href="/yhteystiedot"
+                        href={`${base}yhteystiedot`}
                         class:list={[
                             "cyber-link",
                             {
                                 active: Astro.url.pathname.startsWith(
-                                    "/yhteystiedot",
+                                    `${base}yhteystiedot`,
                                 ),
                             },
                         ]}
@@ -325,9 +326,9 @@ import { ClientRouter } from "astro:transitions";
                         </div>
                     </div>
                     <div class="flex flex-col relative z-10">
-                        <a href="/" class="mb-6"
+                        <a href={base} class="mb-6"
                             ><img
-                                src="/AVlogo2.1.png"
+                                src={`${base}AVlogo2.1.png`}
                                 alt="AIHIO Logo"
                                 class="h-12 w-auto"
                             /></a
@@ -350,22 +351,22 @@ import { ClientRouter } from "astro:transitions";
                         </h3>
                         <nav class="flex flex-col gap-3">
                             <a
-                                href="/"
+                                href={base}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Etusivu</a
                             >
                             <a
-                                href="/portfolio"
+                                href={`${base}portfolio`}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Portfolio</a
                             >
                             <a
-                                href="/tarina"
+                                href={`${base}tarina`}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Tietoa meistä</a
                             >
                             <a
-                                href="/yhteystiedot"
+                                href={`${base}yhteystiedot`}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Ota yhteyttä</a
                             >
@@ -379,22 +380,22 @@ import { ClientRouter } from "astro:transitions";
                         </h3>
                         <nav class="flex flex-col gap-3">
                             <a
-                                href="/palvelut"
+                                href={`${base}palvelut`}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Yrityssivustot</a
                             >
                             <a
-                                href="/palvelut"
+                                href={`${base}palvelut`}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Verkkokaupat</a
                             >
                             <a
-                                href="/palvelut"
+                                href={`${base}palvelut`}
                                 class="font-mono text-xs text-white/60 hover:text-signal-blue transition-colors uppercase tracking-wider border border-transparent hover:border-signal-blue/30 px-3 py-1 w-fit"
                                 >Auditointi & Nopeusoptimointi</a
                             >
                             <a
-                                href="/hintalaskuri"
+                                href={`${base}hintalaskuri`}
                                 class="font-mono text-xs text-signal-green hover:text-white transition-colors uppercase tracking-wider border border-transparent hover:border-signal-green/30 px-3 py-1 w-fit"
                                 >Hintalaskuri</a
                             >
