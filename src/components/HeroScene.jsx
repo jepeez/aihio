@@ -50,7 +50,7 @@ export default function HeroScene() {
                         <AV_logo3d
                             scale={isMobile ? 0.4 : 0.65}
                             position={isMobile ? [0, 2.2, 0] : [2.2, 0.2, 0]}
-                            rotation={[0, -2, 0]}
+                            rotation={[0, -1.6, 0]}
                             isMobile={isMobile}
                         />
                     </Float>
