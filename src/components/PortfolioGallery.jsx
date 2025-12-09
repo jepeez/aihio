@@ -3,13 +3,15 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- DATA ---
+const base = import.meta.env.BASE_URL;
+
 const PROJECTS = [
     {
         id: 'mirrykoru',
         title: 'MIRRYKORU',
         category: 'WEB DESIGN // BRANDING // COMMERCE',
         tag: 'CASE_STUDY',
-        image: '/mirrymockup.webp',
+        image: `${base}mirrymockup.webp`,
         url: 'https://mirrykoru.fi',
         content: {
             name: 'Projektin nimi: Mirrykoru: Verkkokauppa ja 3D-kustomointityökalu suomalaiselle korubrändille',
@@ -59,7 +61,7 @@ const PROJECTS = [
         title: 'OWLEYE',
         category: 'WEBDESIGN',
         tag: 'WEBDESIGN',
-        image: '/owleyemockup.webp',
+        image: `${base}owleyemockup.webp`,
         url: 'https://owleye.fi',
         imageClass: 'object-center md:object-[center_30%]', // Custom positioning for this specific image
         content: {
