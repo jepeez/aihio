@@ -158,14 +158,54 @@ const PROJECTS = [
         }
     },
     {
-        id: 'kinetic',
-        title: 'KINETIC FLOW',
-        category: '3D ANIMATION // MOTION',
-        tag: 'RENDER_03',
-        isPlaceholder: true,
-        placeholderNum: '04',
-        bgClass: 'bg-zinc-900',
-        gradClass: 'bg-gradient-to-br from-zinc-900 to-zinc-800'
+        id: 'marmor',
+        title: 'MARMOR HELSINKI',
+        category: 'WEB DESIGN // BRANDING',
+        tag: 'LATEST',
+        image: `${base}marmor mockup.webp`,
+        imageClass: 'object-center',
+        content: {
+            name: 'Projektin nimi: MARMOR (Fiktiivinen Fine Dining -konsepti)',
+            oneLiner: 'Digitaalinen elämys, joka yhdistää elokuvallisen "Dark Mode" -estetiikan ja salamannopean suorituskyvyn maksimoidakseen pöytävaraukset mobiilissa.',
+            context: {
+                title: '1. Tausta ja Tavoitteet (Context)',
+                items: [
+                    { label: 'Asiakas', value: 'Ravintola MARMOR (Fiktiivinen Fine Dining -konsepti).' },
+                    { label: 'Tavoite', value: 'Luoda visuaalisesti pysäyttävä, mutta teknisesti tinkimätön verkkosivusto, joka kääntää mobiiliselaajat pöytävarauksiksi hyödyntämällä neurosuunnittelua ja hakukoneiden entiteettiymmärrystä.' },
+                    { label: 'Minun roolini', value: 'UI/UX-suunnittelija / SEO-strategi / Frontend-kehittäjä' },
+                    { label: 'Teknologiat', value: 'React (Next.js), SCSS, Schema.org (JSON-LD), Google Maps API, TableOnline-integraatio' },
+                    { label: 'Aikataulu', value: '5 viikkoa' },
+                ]
+            },
+            challenge: {
+                title: '2. Haaste (The Challenge)',
+                text: 'Ravintola-alalla päätös tehdään sekunneissa, ja yli puolet asiakkaista selaa sivuja mobiilissa liikkeellä ollessaan.\\n\\nHaasteena oli yhdistää MARMORin vaatima raskas, tummanpuhuva luksusilme (isot kuvat, videotaustat) Googlen vaatimaan huippunopeuteen (Core Web Vitals). Sivuston piti viestiä "Premium"-laatua 50 millisekunnissa, mutta toimia käyttöliittymältään yhtä kitkattomasti kuin yksinkertainen varaussovellus.'
+            },
+            solution: {
+                title: '3. Ratkaisu (The Solution)',
+                features: [
+                    {
+                        name: 'Ominaisuus 1: Mobiilioptimoitu "Thumb Zone" -käyttöliittymä',
+                        what: 'Hylkäsin perinteisen ylävalikossa olevan varausnapin ja toteutin ruudun alareunaan kiinnitetyn "Sticky Bar" -varauspalkin, joka on aina näkyvissä.',
+                        why: 'Mobiililaitteilla peukalo yltää luonnostaan näytön alaosaan ("Thumb Zone"). Kun tärkein toiminto (konversio) on aina sormen alla ilman kurottelua, fyysinen kitka poistuu ja varauskynnys madaltuu merkittävästi.'
+                    },
+                    {
+                        name: 'Ominaisuus 2: AEO (Answer Engine Optimization) & Strukturoitu Menu',
+                        what: 'Rakensin ruokalistat teknisenä datana (Schema.org) ja jaoin ne "Tabs"-välilehtiin (Dinner/Lunch). Korvasin pelkät tekstit yhdistelmällä makrokuvia ja koodipohjaista tuotetietoa.',
+                        why: 'Tulevaisuuden haut ovat visuaalisia ja tekoälyvetoisia. Kun menu on strukturoitua dataa eikä PDF, hakukoneet ymmärtävät annokset (esim. "Nordic Wagyu") entiteetteinä ja nostavat ravintolan hakutuloksiin täsmähauilla.'
+                    },
+                    {
+                        name: 'Ominaisuus 3: Neurodesign ja luottamuksen rakentaminen',
+                        what: 'Suunnittelin ostopolun niin, että luottamussignaalit (Michelin-maininnat, keittiömestarin kasvot) näkyvät heti ensimmäisellä silmäyksellä ("Above the Fold"), ennen kuin käyttäjältä pyydetään mitään.',
+                        why: 'Käyttäjä arvioi sivuston luotettavuuden välittömästi. Tuomalla inhimillisen tekijän ja auktoriteetin heti näkyviin ("Author Vector"), vähensimme välitöntä poistumista ja loimme emotionaalisen siteen ennen varausta.'
+                    }
+                ]
+            },
+            result: {
+                title: '4. Lopputulos (The Result)',
+                text: 'Lopputuloksena syntyi "Appointment Funnel" -optimoitu sivusto, joka ei vain toimi digitaalisena käyntikorttina, vaan aktiivisena myyntikanavana. Sivusto latautuu alle 2,5 sekunnissa raskaasta visuaalisuudesta huolimatta, ja sen arkkitehtuuri varmistaa näkyvyyden myös tulevaisuuden tekoälyhauissa.'
+            }
+        }
     },
     {
         id: 'aura',
