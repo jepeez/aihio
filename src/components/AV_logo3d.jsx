@@ -116,6 +116,16 @@ export function AV_logo3d(props) {
         const { pointer, camera } = state
         const time = state.clock.elapsedTime
 
+        // Define constants/variables that were missing
+        const assembleStart = 0.5
+        const assembleEndTime = 3.5
+        const baseY = -1.6
+        const isIntro = time < (assembleEndTime + 1.0)
+        const idleSway = Math.sin(time * 0.5) * 0.05
+
+        let effectiveIntensity = 0
+        let explosionScale = 1.0
+
         if (isIntro) {
             if (group.current) {
                 const spinProgress = Math.min(1.0, time / assembleEndTime)
@@ -225,7 +235,7 @@ export function AV_logo3d(props) {
                 const originalRot = ref.userData.originalRot
 
                 // Explosion
-                const baseDist = 25.0
+                const baseDist = 12.0
                 const finalDist = baseDist * explosionScale
                 const targetPos = originalPos.clone().add(item.randomDir.clone().multiplyScalar(effectiveIntensity * finalDist))
 
