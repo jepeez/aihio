@@ -108,12 +108,62 @@ const PROJECTS = [
         }
     },
     {
+        id: 'blonde',
+        title: 'BLONDE SALON',
+        category: 'WEB DESIGN // BRANDING',
+        tag: 'LATEST',
+        image: `${base}blonde MOCKUP.webp`,
+        imageClass: 'object-center',
+        content: {
+            name: 'Projektin nimi: BLONDE (Specialist Blonde Studio)',
+            oneLiner: 'Digitaalinen lippulaiva, joka yhdistää "Quiet Luxury" -estetiikan ja strategisen konversio-optimoinnin muuttaen satunnaiset vierailijat sitoutuneiksi asiakkaiksi.',
+            context: {
+                title: '1. Tausta ja Tavoitteet (Context)',
+                items: [
+                    { label: 'Asiakas', value: 'BLONDE. (Specialist Blonde Studio).' },
+                    { label: 'Tavoite', value: 'Rakentaa uskottava premium-brändi, joka perustelee korkeamman hintatason visuaalisesti, houkuttelee laatutietoisia AirTouch-asiakkaita ja tekee ajanvarauksesta kitkatonta.' },
+                    { label: 'Minun roolini', value: 'Web Designer / SEO-strategi / UI/UX-suunnittelija' },
+                    { label: 'Teknologiat', value: 'React / Next.js, Tailwind CSS, Schema.org (JSON-LD), Timma-integraatio, Midjourney (Art Direction)' },
+                    { label: 'Aikataulu', value: '3 viikkoa' },
+                ]
+            },
+            challenge: {
+                title: '2. Haaste (The Challenge)',
+                text: 'Helsingin kampaamomarkkina on erittäin kilpailtu, ja asiakkaat tekevät ostopäätöksen usein alle 50 millisekunnissa visuaalisen ensivaikutelman perusteella.\\n\\nSuurin haaste oli luoda sivusto, joka viestii "kallista" ja "asiantuntevaa" ilman, että se tuntuu etäiseltä tai vaikeakäyttöiseltä. Perinteiset, geneerisiä kuvapankkikuvia käyttävät sivustot eivät toimineet, sillä tavoitteena oli myydä nimenomaan henkilökohtaista asiantuntijuutta ja vaativia teknisiä töitä (AirTouch). Lisäksi sivuston oli pakko toimia täydellisesti mobiilissa, josta 80 % liikenteestä tulee.'
+            },
+            solution: {
+                title: '3. Ratkaisu (The Solution)',
+                features: [
+                    {
+                        name: 'Ominaisuus 1: Mobile-First Art Direction & Ergonomia',
+                        what: 'Suunnittelin sivustolle täysin erillisen mobiili-ilmeen. Desktopin laajat vaakakuvat korvattiin mobiilissa tarkkaan rajatuilla pystykuvilla, ja typografia skaalattiin luettavaksi ilman ahtauden tunnetta. CTA-napit ("Varaa aika") sijoitettiin "Thumb Zone" -alueelle.',
+                        why: 'Tämä varmistaa, ettei teksti peitä kasvoja tai tärkeitä yksityiskohtia pienellä näytöllä. Kun luettavuus on vaivatonta, kognitiivinen kuorma laskee ja konversio paranee.'
+                    },
+                    {
+                        name: 'Ominaisuus 2: Entiteettipohjainen SEO ja E-E-A-T',
+                        what: 'Rakensin sivuston rakenteen Googlen "Knowledge Graph" -periaatteiden mukaisesti. Tiimisivut muutettiin pelkistä nimilistoista syvällisiksi asiantuntijaprofiileiksi ("Artist Profiles"), ja palvelusivut organisoitiin lehtimäiseen Zig-Zag -asetteluun, joka korostaa hyötyjä ominaisuuksien sijaan.',
+                        why: 'Google (ja asiakas) vaatii nykyään todisteita asiantuntijuudesta (Experience & Expertise). Selkeät "Clarity Signals" -otsikot ja biografit nostavat sivuston auktoriteettia hakutuloksissa.'
+                    },
+                    {
+                        name: 'Ominaisuus 3: "Quiet Luxury" -visuaalinen hierarkia',
+                        what: 'Poistin kaiken visuaalisen hälyn (kuten halvat ikonit) ja luotin dramaattiseen, tummaan estetiikkaan, eleganttiin typografiaan ja negatiivisen tilan käyttöön.',
+                        why: 'Minimalismi ja harkittu tyhjä tila viestivät implisiittisesti luksuksesta. Se antaa sisällölle tilaa hengittää ja ohjaa käyttäjän huomion vain olennaiseen: upeisiin hiuksiin ja ajanvaraukseen.'
+                    }
+                ]
+            },
+            result: {
+                title: '4. Lopputulos (The Result)',
+                text: 'Lopputuloksena syntyi verkkosivusto, joka tuntuu enemmän kansainväliseltä muotijulkaisulta kuin paikalliselta palvelusivulta. Sivusto rakentaa vahvan luottamuksen jo ennen ensimmäistäkään kohtaamista, suodattaa asiakaskuntaa halutulle tasolle ja toimii tehokkaana myyntisuppilona kellon ympäri.'
+            }
+        }
+    },
+    {
         id: 'kinetic',
         title: 'KINETIC FLOW',
         category: '3D ANIMATION // MOTION',
         tag: 'RENDER_03',
         isPlaceholder: true,
-        placeholderNum: '03',
+        placeholderNum: '04',
         bgClass: 'bg-zinc-900',
         gradClass: 'bg-gradient-to-br from-zinc-900 to-zinc-800'
     },
@@ -123,7 +173,7 @@ const PROJECTS = [
         category: 'IDENTITY // VIDEO',
         tag: 'BRAND_ID',
         isPlaceholder: true,
-        placeholderNum: '04',
+        placeholderNum: '05',
         bgClass: 'bg-neutral-900',
         gradClass: 'bg-gradient-to-br from-neutral-900 to-neutral-800'
     }

@@ -116,50 +116,6 @@ export function AV_logo3d(props) {
         const { pointer, camera } = state
         const time = state.clock.elapsedTime
 
-        // 2. Interaction Logic
-        const vec = new THREE.Vector3(pointer.x, pointer.y, 0.5)
-        vec.unproject(camera)
-        const dir = vec.sub(camera.position).normalize()
-
-        // Updated default position based on HeroScene: [0.6, 2.5, 0]
-        const groupWorldPos = new THREE.Vector3()
-        if (group.current) {
-            group.current.getWorldPosition(groupWorldPos)
-        } else {
-            groupWorldPos.set(0.6, 2.5, 0)
-        }
-
-        // Raycast to the exact Z plane of the object (handles floating Z)
-        const planeZ = groupWorldPos.z
-        const distanceToPlane = (planeZ - camera.position.z) / dir.z
-        const mouseWorldPos = camera.position.clone().add(dir.multiplyScalar(distanceToPlane))
-
-        // Standard Euclidean distance (uniform sensitivity)
-        const dx = mouseWorldPos.x - groupWorldPos.x
-        const dy = mouseWorldPos.y - groupWorldPos.y
-        const dz = mouseWorldPos.z - groupWorldPos.z
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
-
-        const proximityThreshold = 2.5
-
-        // Intro Sequence Logic
-        const assembleStart = 0.5
-        const assembleEndTime = 4.0
-        const interactionStartTime = 4.5
-
-        const isIntro = time < interactionStartTime
-
-        let effectiveIntensity = 0
-        let explosionScale = 1.0
-
-        // Calculate Base Rotation + Idle Sway
-        const baseY = props.rotation ? props.rotation[1] : 0
-
-        // Sway +/- 30 degrees (approx 0.5 radians)
-        // Speed 0.5 is good for a gentle sway
-        const swayAmplitude = 0.5
-        const idleSway = Math.sin(time * 0.7) * swayAmplitude
-
         if (isIntro) {
             if (group.current) {
                 const spinProgress = Math.min(1.0, time / assembleEndTime)
@@ -189,6 +145,31 @@ export function AV_logo3d(props) {
             let targetIntensity = 0
 
             if (!props.isMobile) {
+                // 2. Interaction Logic (Only on Desktop)
+                const vec = new THREE.Vector3(pointer.x, pointer.y, 0.5)
+                vec.unproject(camera)
+                const dir = vec.sub(camera.position).normalize()
+
+                // Updated default position based on HeroScene: [0.6, 2.5, 0]
+                const groupWorldPos = new THREE.Vector3()
+                if (group.current) {
+                    group.current.getWorldPosition(groupWorldPos)
+                } else {
+                    groupWorldPos.set(0.6, 2.5, 0)
+                }
+
+                // Raycast to the exact Z plane of the object (handles floating Z)
+                const planeZ = groupWorldPos.z
+                const distanceToPlane = (planeZ - camera.position.z) / dir.z
+                const mouseWorldPos = camera.position.clone().add(dir.multiplyScalar(distanceToPlane))
+
+                // Standard Euclidean distance (uniform sensitivity)
+                const dx = mouseWorldPos.x - groupWorldPos.x
+                const dy = mouseWorldPos.y - groupWorldPos.y
+                const dz = mouseWorldPos.z - groupWorldPos.z
+                const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
+
+                const proximityThreshold = 2.5
                 const rawTargetIntensity = Math.max(0, 1 - dist / proximityThreshold)
                 targetIntensity = Math.pow(rawTargetIntensity, 1.5)
             }

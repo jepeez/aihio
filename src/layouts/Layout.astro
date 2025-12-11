@@ -543,38 +543,67 @@ const base = import.meta.env.BASE_URL;
 
             // Grid Animation Globals
             let startMenuCloseAnimation = false;
-            let canvasStatic,
-                ctxStatic,
-                canvasActive,
-                ctxActive,
-                canvasMenu,
-                ctxMenu;
-            let width, height;
+            /** @type {HTMLCanvasElement | null} */
+            let canvasStatic = null;
+            /** @type {CanvasRenderingContext2D | null} */
+            let ctxStatic = null;
+            /** @type {HTMLCanvasElement | null} */
+            let canvasActive = null;
+            /** @type {CanvasRenderingContext2D | null} */
+            let ctxActive = null;
+            /** @type {HTMLCanvasElement | null} */
+            let canvasMenu = null;
+            /** @type {CanvasRenderingContext2D | null} */
+            let ctxMenu = null;
+            let width = 0;
+            let height = 0;
+            /** @type {Hexagon[]} */
             let hexagons = [];
+            /** @type {Hexagon[][]} */
             let gridMap = []; // 2D array for fast spatial lookup: gridMap[col][row]
             let hexRadius = 25;
-            let hexHeight, hexWidth, hexXSpacing, hexYSpacing;
+            let hexHeight = 0;
+            let hexWidth = 0;
+            let hexXSpacing = 0;
+            let hexYSpacing = 0;
             let isMobile = false;
             let mouse = { x: -1000, y: -1000 };
             let lastMouse = { x: -1000, y: -1000 }; // For optimization
+            /** @type {any[]} */
             let ripples = [];
+            /** @type {any[]} */
             let redPings = [];
             let isAnimating = true;
+            /** @type {number} */
             let animationFrameId;
             let lastTime = 0; // For delta time
+            /** @type {Hexagon[]} */
             let cachedActiveHexes = []; // Cache for neighbor search
+            /** @type {Hexagon | null} */
             let cachedClosestHex = null;
 
             // Menu Animation Globals
             let isMenuOpen = false;
             let menuAnimationProgress = 0;
+            /** @type {number[]} */
             let menuHexagonOrder = [];
             let menuAnimationSpeed = 0; // Calculated based on screen size
+            /** @type {any[]} */
             let menuTracers = []; // Glowing lines for menu
             let inputIntensity = 0;
             let isTouching = false;
 
             class Hexagon {
+                /**
+                 * @property {number} x
+                 * @property {number} y
+                 * @property {number} row
+                 * @property {number} col
+                 * @param {number} x
+                 * @param {number} y
+                 * @param {number} row
+                 * @param {number} col
+                 */
                 constructor(x, y, row, col) {
                     this.x = x;
                     this.y = y;
@@ -582,6 +611,12 @@ const base = import.meta.env.BASE_URL;
                     this.col = col;
                 }
 
+                /**
+                 * @param {CanvasRenderingContext2D} ctx
+                 * @param {string | null} [strokeStyle]
+                 * @param {string | null} [fillStyle]
+                 * @param {number} [lineWidth]
+                 */
                 draw(ctx, strokeStyle = null, fillStyle = null, lineWidth = 1) {
                     ctx.beginPath();
                     for (let i = 0; i < 6; i++) {
@@ -1112,15 +1147,21 @@ const base = import.meta.env.BASE_URL;
 
             // Setup Grid System
             const setupGrid = () => {
-                canvasStatic = document.getElementById("grid-static");
-                canvasActive = document.getElementById("grid-active");
+                canvasStatic = /** @type {HTMLCanvasElement} */ (
+                    document.getElementById("grid-static")
+                );
+                canvasActive = /** @type {HTMLCanvasElement} */ (
+                    document.getElementById("grid-active")
+                );
 
                 if (canvasStatic && canvasActive) {
                     ctxStatic = canvasStatic.getContext("2d");
                     ctxActive = canvasActive.getContext("2d");
                 }
 
-                canvasMenu = document.getElementById("menu-canvas");
+                canvasMenu = /** @type {HTMLCanvasElement} */ (
+                    document.getElementById("menu-canvas")
+                );
                 if (canvasMenu) {
                     ctxMenu = canvasMenu.getContext("2d");
                 }
